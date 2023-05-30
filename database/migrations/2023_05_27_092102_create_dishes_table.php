@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('restaurants', function (Blueprint $table) {
-            // Them khoa ngoai cho UserID
-            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            
+        Schema::create('dishes', function (Blueprint $table) {
+            $table->id();
+            $table->string('Name', 100);
+            $table->string('Introduction', 1000);
+            $table->text('Image_URL')->nullable();
+            $table->unsignedBigInteger('TypeID')->length(6);
+            $table->timestamps();
+
             // Them khoa ngoai cho TypeID
             $table->foreign('TypeID')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
-            });
+        });
     }
 
     /**
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('dishes');
     }
 };
