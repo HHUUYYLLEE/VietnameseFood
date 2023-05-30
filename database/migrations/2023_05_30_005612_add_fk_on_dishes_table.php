@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::table('restaurants', function (Blueprint $table) {
+        Schema::table('dishes', function (Blueprint $table) {
             // Them khoa ngoai cho TypeID
             $table->foreign('TypeID')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
         });
