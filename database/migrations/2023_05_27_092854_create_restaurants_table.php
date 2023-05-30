@@ -32,6 +32,7 @@ return new class extends Migration
 
             // Them khoa ngoai cho City
             $table->foreign('CityID')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
 
