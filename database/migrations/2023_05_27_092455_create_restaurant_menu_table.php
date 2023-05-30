@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('DishID')->length(6);
             $table->unsignedBigInteger('RestaurantID')->length(6);
-            $table->unsignedBigInteger('MenuID')->length(6);
             $table->integer('Price')->nullable();
             $table->timestamps();
 
@@ -27,8 +26,7 @@ return new class extends Migration
             // Thêm khóa ngoại cho trường RestaurantID
             $table->foreign('RestaurantID')->references('id')->on('restaurants')->onDelete('cascade');
 
-            // // Thêm khóa ngoại cho trường MenuID
-            // $table->foreign('MenuID')->references('id')->on('menus')->onDelete('cascade');
+          
         });
     }
 
@@ -38,7 +36,7 @@ return new class extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::dropIfExists('restaurant_menu');
+    {   
+        Schema::dropIfExists('restaurant_menus');
     }
 };

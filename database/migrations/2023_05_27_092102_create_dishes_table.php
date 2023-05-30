@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('dishes', function (Blueprint $table) {
+        Schema::create('dishes', function (Blueprint $table) {
+            $table->id();
+            $table->string('Name', 100);
+            $table->string('Introduction', 1000);
+            $table->text('Image_URL')->nullable();
+            $table->unsignedBigInteger('TypeID')->length(6);
+            $table->timestamps();
+
             // Them khoa ngoai cho TypeID
             $table->foreign('TypeID')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
         });
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('dishes');
     }
 };

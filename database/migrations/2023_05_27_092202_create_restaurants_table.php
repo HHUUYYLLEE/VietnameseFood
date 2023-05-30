@@ -33,6 +33,11 @@ return new class extends Migration
             // Them khoa ngoai cho City
             $table->foreign('CityID')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
 
+            // Them khoa ngoai cho UserID
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            // Them khoa ngoai cho TypeID
+            $table->foreign('TypeID')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
