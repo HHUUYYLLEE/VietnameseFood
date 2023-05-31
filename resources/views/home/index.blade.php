@@ -1,4 +1,5 @@
 @include('../inc/header')
+@section('title', 'Home')
 <br>
 @include('/home/restaurantFavorite')
 <br>

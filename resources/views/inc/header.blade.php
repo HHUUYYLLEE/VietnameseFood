@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>
+        @yield('title')
+    </title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link
       rel="stylesheet"
@@ -26,7 +29,7 @@
       <div class="container-fluid">
         <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               <img
                 src="chef-restaurant-logo-publicdomainvectors.svg"
                 alt="Logo"
@@ -54,7 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+              <a class="nav-link active" aria-current="page" href="/">ホーム</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">レストラン</a>
@@ -64,8 +67,11 @@
             </li>
           </ul>
         </div>
-
-        <button type="button" class="btn btn-primary btn-lg">ログイン</button>
+        @guest
+          @if(Route::has('login'))
+            <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
+          @endif
+        @endguest
       </div>
     </nav>
   </body>
