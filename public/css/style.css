@@ -65,3 +65,18 @@
 #footer .fa-solid:hover {
   text-decoration: none;
 }
+
+#header .avt {
+  margin-right: 10px;
+}
+
+#header .avt .fa-solid {
+  font-size: 20px;
+}
+
+#header .advise {
+  text-align: center;
+  background-color: red;
+  font-weight: 500;
+  color: white;
+}
