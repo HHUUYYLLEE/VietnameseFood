@@ -18,13 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'Name',
-        'Email',
-        'Password',
-        'Phone_number',
-        'Address',
-        'Role',
-        'Avatar_URL'
+        'name',
+        'email',
+        'password',
+        'phone_number',
+        'address',
+        'role'
     ];
 
     /**
@@ -33,7 +32,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'Password'
+        'password',
+        'remember_token'
     ];
 
     /**
@@ -43,4 +43,14 @@ class User extends Authenticatable
      */
     // protected $casts = [
     // ];
+
+    protected $columns = [
+        'name',
+        'email',
+        'password',
+        'phone_number',
+        'address',
+        'role',
+        'avatar_url'
+    ];
 }

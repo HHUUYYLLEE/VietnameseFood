@@ -31,10 +31,10 @@
           <div class="container-fluid">
             <a class="navbar-brand" href="/">
               <img
-                src="chef-restaurant-logo-publicdomainvectors.svg"
+                src="https://avatars.githubusercontent.com/u/19906050?v=4"
                 alt="Logo"
                 width="40"
-                height="30"
+                height="40"
                 class="d-inline-block align-text-top"
               />
               VietnameseFood

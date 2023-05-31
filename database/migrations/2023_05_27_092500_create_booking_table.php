@@ -15,18 +15,18 @@ return new class extends Migration
     {
         Schema::create('booking', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('UserID')->length(6);
-            $table->unsignedBigInteger('RestaurantID')->length(6);
-            $table->dateTime('Booking_date_time');
-            $table->integer('Number_of_people');
-            $table->tinyInteger('Status');
+            $table->unsignedBigInteger('user_id')->length(6);
+            $table->unsignedBigInteger('restaurant_id')->length(6);
+            $table->dateTime('nooking_date_time');
+            $table->integer('number_of_people');
+            $table->tinyInteger('status');
             $table->timestamps();
 
             // Thêm khóa ngoại cho trường UserID
-            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             // Thêm khóa ngoại cho trường RestaurantID
-            $table->foreign('RestaurantID')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 

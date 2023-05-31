@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 100);
-            $table->string('Introduction', 1000);
-            $table->text('Image_URL')->nullable();
-            $table->unsignedBigInteger('TypeID')->length(6);
+            $table->string('name', 100);
+            $table->string('introduction', 1000);
+            $table->text('image_url')->nullable();
+            $table->unsignedBigInteger('type_id')->length(6);
             $table->timestamps();
 
             // Them khoa ngoai cho TypeID
-            $table->foreign('TypeID')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('type_id')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

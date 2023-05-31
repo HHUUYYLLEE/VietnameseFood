@@ -15,20 +15,20 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('UserID')->length(6);
-            $table->unsignedBigInteger('RestaurantID')->length(6);
-            $table->string('Comment', 5000);
-            $table->dateTime('Comment_date');
-            $table->float('Rating')->nullable();
-            $table->text('Image_URL')->nullable();
-            $table->dateTime('Date');
+            $table->unsignedBigInteger('user_id')->length(6);
+            $table->unsignedBigInteger('restaurant_id')->length(6);
+            $table->string('comment', 5000);
+            $table->dateTime('comment_date');
+            $table->float('rating')->nullable();
+            $table->text('image_url')->nullable();
+            $table->dateTime('date');
             $table->timestamps();
 
             // Thêm khóa ngoại cho trường UserID
-            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             // Thêm khóa ngoại cho trường RestaurantID
-            $table->foreign('RestaurantID')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 

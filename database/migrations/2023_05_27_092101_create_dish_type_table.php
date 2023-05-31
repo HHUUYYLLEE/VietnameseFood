@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dish_type', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 100);
+            $table->string('name', 100);
             $table->timestamps();
         });
     }

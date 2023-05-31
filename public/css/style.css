@@ -30,7 +30,7 @@
   border-color: red;
 }
 
-.navbar {
+#header .navbar {
   background-color: #f8e8ee;
 }
 
@@ -40,4 +40,28 @@
 
 .container-fluid .nav-item .nav-link:hover {
   color: red;
+}
+
+#footer .navbar {
+  background-color: #7e1717;
+  color: #f2bed1;
+  font-weight: 600;
+}
+
+#footer .nav {
+  margin: 0 15px;
+}
+#footer .col-md-6 {
+  padding: 20px 20px 20px 20px;
+}
+
+#footer .fa-brands,
+#footer .fa-solid {
+  font-size: 40px;
+  color: #f2bed1;
+}
+
+#footer .fa-brands:hover,
+#footer .fa-solid:hover {
+  text-decoration: none;
 }

@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('restaurant_menus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('DishID')->length(6);
-            $table->unsignedBigInteger('RestaurantID')->length(6);
-            $table->integer('Price')->nullable();
+            $table->unsignedBigInteger('dish_id')->length(6);
+            $table->unsignedBigInteger('restaurant_id')->length(6);
+            $table->integer('price')->nullable();
             $table->timestamps();
 
             // Thêm khóa ngoại cho trường DishID
-            $table->foreign('DishID')->references('id')->on('dishes')->onDelete('cascade');
+            $table->foreign('dish_id')->references('id')->on('dishes')->onDelete('cascade');
 
             // Thêm khóa ngoại cho trường RestaurantID
-            $table->foreign('RestaurantID')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
 
           
         });

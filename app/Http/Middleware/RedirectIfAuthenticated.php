@@ -29,8 +29,4 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
-
-    protected $except = [
-        '/login',
-    ];
 }
