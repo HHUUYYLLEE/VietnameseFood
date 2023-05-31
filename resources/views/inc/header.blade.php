@@ -57,7 +57,7 @@
               </div>
             </nav>
 
-            <form class="d-flex" role="search">
+            <form class="d-flex space-modifier" role="search">
               <input
                 class="form-control me-2"
                 type="search"
