@@ -1,7 +1,9 @@
-Day la Home
+@include('../inc/header')
 <br>
 @include('/home/restaurantFavorite')
 <br>
 @include('/home/restaurantHighRate')
 <br>
 @include('/home/dishHighRate')
+<br>
+@include('../inc/footer')

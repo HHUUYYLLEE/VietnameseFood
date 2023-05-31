@@ -1,0 +1,43 @@
+#navbarSupportedContent .navbar-nav {
+  margin: 0 100px 0;
+}
+
+#navbarSupportedContent .nav-item {
+  margin-right: 50px;
+}
+
+.container-fluid .d-flex {
+  margin: 0px 100px 0px;
+}
+
+.container-fluid .form-control {
+  background-color: #f6ffa6;
+  border-color: red;
+}
+
+.container-fluid .btn-outline-success {
+  border-color: red;
+  color: white;
+  background-color: red;
+}
+
+.container-fluid .btn-outline-success:hover {
+  background-color: #007bff;
+}
+
+.container-fluid .btn-primary {
+  background-color: red;
+  border-color: red;
+}
+
+.navbar {
+  background-color: #f8e8ee;
+}
+
+.container-fluid .nav-item .nav-link {
+  color: black;
+}
+
+.container-fluid .nav-item .nav-link:hover {
+  color: red;
+}
