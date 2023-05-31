@@ -35,3 +35,6 @@ Route::prefix('dish')->group(function () {
 });
 
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
+
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
