@@ -8,3 +8,5 @@
 @include('/home/dishHighRate')
 <br>
 @include('../inc/footer')
+</body>
+</html>
