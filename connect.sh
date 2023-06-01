@@ -1,1 +1,1 @@
-docker exec -it app-food bash
+docker-compose exec -it app bash
