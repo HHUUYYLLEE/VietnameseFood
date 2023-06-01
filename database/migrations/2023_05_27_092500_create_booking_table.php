@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->length(6);
             $table->unsignedBigInteger('restaurant_id')->length(6);
-            $table->dateTime('nooking_date_time');
+            $table->dateTime('booking_date_time');
             $table->integer('number_of_people');
             $table->tinyInteger('status');
             $table->timestamps();
