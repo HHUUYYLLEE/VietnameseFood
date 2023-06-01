@@ -18,9 +18,9 @@ class RestaurantMenuSeeder extends Seeder
         for ($i = 1; $i <= 4; $i++) {
             for ($j = 1; $j <= 31; $j++) {
                 $restaurant_menu[] = [
-                    'DishID' => $j,
-                    'RestaurantID' => $i,
-                    'Price' => rand(10000, 500000),
+                    'dish_id' => $j,
+                    'restaurant_id' => $i,
+                    'price' => rand(10000, 500000),
                     'updated_at' => now(), 
                     'created_at' => now()
                 ];

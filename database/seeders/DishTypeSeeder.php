@@ -16,18 +16,18 @@ class DishTypeSeeder extends Seeder
     public function run()
     {
         $dish_types = [
-            ['Name' => 'Phở', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Bún', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Bánh mì', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Cơm', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Cháo', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Bánh', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Mì', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Lẩu', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Nước uống', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Tráng miệng', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Khác', 'updated_at' => now(), 'created_at' => now()],
-            ['Name' => 'Món ăn với cơm', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Phở', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Bún', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Bánh mì', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Cơm', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Cháo', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Bánh', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Mì', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Lẩu', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Nước uống', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Tráng miệng', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Khác', 'updated_at' => now(), 'created_at' => now()],
+            ['name' => 'Món ăn với cơm', 'updated_at' => now(), 'created_at' => now()],
         ];
 
         DB::table('dish_type')->insert($dish_types);

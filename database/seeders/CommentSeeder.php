@@ -21,61 +21,61 @@ class CommentSeeder extends Seeder
                 $rand = rand(1, 5);
                 if ($rand == 1) {
                     $comments[] = [
-                        'UserID' => $i,
-                        'RestaurantID' => $j,
-                        'Comment' => 'Rất Tệ',
-                        'Comment_date' => now(),
-                        'Rating' => $rand,
-                        'Image_URL' => 'https://image.example.com/' . $i . '.jpg',
-                        'Date' => now(),
+                        'user_id' => $i,
+                        'restaurant_id' => $j,
+                        'comment' => 'Rất Tệ',
+                        'comment_date' => now(),
+                        'rating' => $rand,
+                        'image_url' => 'https://image.example.com/' . $i . '.jpg',
+                        'date' => now(),
                         'updated_at' => now(),
                         'created_at' => now()
                     ];
                 } else if ($rand == 2) {
                     $comments[] = [
-                        'UserID' => $i,
-                        'RestaurantID' => $j,
-                        'Comment' => 'Không Ngon',
-                        'Comment_date' => now(),
-                        'Rating' => $rand,
-                        'Image_URL' => 'https://image.example.com/' . $i . '.jpg',
-                        'Date' => now(),
+                        'user_id' => $i,
+                        'restaurant_id' => $j,
+                        'comment' => 'Không Ngon',
+                        'comment_date' => now(),
+                        'rating' => $rand,
+                        'image_url' => 'https://image.example.com/' . $i . '.jpg',
+                        'date' => now(),
                         'updated_at' => now(),
                         'created_at' => now()
                     ];
                 } else if ($rand == 3) {
                     $comments[] = [
-                        'UserID' => $i,
-                        'RestaurantID' => $j,
-                        'Comment' => 'Tạm được',
-                        'Comment_date' => now(),
-                        'Rating' => $rand,
-                        'Image_URL' => 'https://image.example.com/' . $i . '.jpg',
-                        'Date' => now(),
+                        'user_id' => $i,
+                        'restaurant_id' => $j,
+                        'comment' => 'Tạm được',
+                        'comment_date' => now(),
+                        'rating' => $rand,
+                        'image_url' => 'https://image.example.com/' . $i . '.jpg',
+                        'date' => now(),
                         'updated_at' => now(),
                         'created_at' => now()
                     ];
                 } else if ($rand == 4) {
                     $comments[] = [
-                        'UserID' => $i,
-                        'RestaurantID' => $j,
-                        'Comment' => 'Ngon',
-                        'Comment_date' => now(),
-                        'Rating' => $rand,
-                        'Image_URL' => 'https://image.example.com/' . $i . '.jpg',
-                        'Date' => now(),
+                        'user_id' => $i,
+                        'restaurant_id' => $j,
+                        'comment' => 'Ngon',
+                        'comment_date' => now(),
+                        'rating' => $rand,
+                        'image_url' => 'https://image.example.com/' . $i . '.jpg',
+                        'date' => now(),
                         'updated_at' => now(),
                         'created_at' => now()
                     ];
                 } else if ($rand == 5) {
                     $comments[] = [
-                        'UserID' => $i,
-                        'RestaurantID' => $j,
-                        'Comment' => 'Rất Ngon',
-                        'Comment_date' => now(),
-                        'Rating' => $rand,
-                        'Image_URL' => 'https://image.example.com/' . $i . '.jpg',
-                        'Date' => now(),
+                        'user_id' => $i,
+                        'restaurant_id' => $j,
+                        'comment' => 'Rất Ngon',
+                        'comment_date' => now(),
+                        'rating' => $rand,
+                        'image_url' => 'https://image.example.com/' . $i . '.jpg',
+                        'date' => now(),
                         'updated_at' => now(),
                         'created_at' => now()
                     ];
