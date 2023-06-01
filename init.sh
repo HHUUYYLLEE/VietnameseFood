@@ -1,8 +1,6 @@
-docker-compose up --build -d
-docker-compose exec app composer install --ignore-platform-reqs
-docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan optimize
-docker-compose exec app php artisan migrate
-# docker-compose exec app php artisan db:seed
-
-
+docker compose up --build -d
+docker exec app-food composer install --ignore-platform-reqs
+docker exec app-food php artisan key:generate
+docker exec app-food php artisan optimize
+docker exec app-food php artisan migrate:refresh
+docker exec app-food php artisan db:seed -force
