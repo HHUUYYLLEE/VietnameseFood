@@ -6,7 +6,6 @@ services:
             context: ./docker/laravel
             dockerfile: Dockerfile
         working_dir: /var/www/code
-        restart: unless-stopped
         volumes:
             - .:/var/www/code
         networks:
@@ -15,7 +14,6 @@ services:
     web:
         container_name: web-food
         image: nginx
-        restart: unless-stopped
         working_dir: /var/www/code
         user: root
         volumes:
