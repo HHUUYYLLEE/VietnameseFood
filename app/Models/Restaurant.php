@@ -10,34 +10,34 @@ class Restaurant extends Model
     use HasFactory;
     protected $table = 'restaurants';
     protected $fillable = [
-        'id', 'name', 'address', 'introduction', 'image_URL',
-        'typeId', 'Number_of_tables', 'UserID', 'RatingAvg', 'Status', 'open_time', 'close_time',
-        'legality', 'CityID', 'created_at', 'updated_at'
+        'id', 'name', 'address', 'introduction', 'image_url',
+        'type_id', 'number_of_tables', 'user_id', 'rating_avg', 'status', 'opening_time', 'closing_time',
+        'legality', 'city_id', 'created_at', 'updated_at'
     ];
     protected $visible = [
-        'id', 'name', 'address', 'introduction', 'image_URL',
-        'typeId', 'Number_of_tables', 'UserID', 'RatingAvg', 'Status', 'open_time', 'close_time',
-        'legality', 'CityID', 'created_at', 'updated_at'
+        'id', 'name', 'address', 'introduction', 'image_url',
+        'type_id', 'number_of_tables', 'user_id', 'rating_avg', 'status', 'opening_time', 'closing_time',
+        'legality', 'city_id', 'created_at', 'updated_at'
     ];
     
     public function city()
     {
-        return $this->belongsTo(City::class, 'CityID', 'id');
+        return $this->belongsTo(City::class, 'city_id', 'id');
     }
     public function type()
     {
-        return $this->belongsTo(Type::class, 'TypeID', 'id');
+        return $this->belongsTo(Type::class, 'type_id', 'id');
     }
     public function dishes()
     {
-        return $this->hasMany(Dish::class, 'RestaurantID', 'id');
+        return $this->hasMany(Dish::class, 'restaurant_id', 'id');
     }
     public function booking()
     {
-        return $this->hasMany(Booking::class, 'RestaurantID', 'id');
+        return $this->hasMany(Booking::class, 'restaurant_id', 'id');
     }
     public function user()
     {
-        return $this->belongsTo(User::class, 'UserID', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

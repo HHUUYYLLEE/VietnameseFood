@@ -4,7 +4,7 @@
 <br>
 @include('home.restaurantFavorite')
 <br>
-@include('.home.restaurantHighRate')
+@include('home.restaurantHighRate')
 <br>
 @include('home.dishHighRate')
 <br>

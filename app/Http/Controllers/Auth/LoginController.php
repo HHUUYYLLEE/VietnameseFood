@@ -20,12 +20,12 @@ class LoginController extends Controller
 
     protected function sendFailedLoginResponse(Request $request)
     {
-        return redirect()->route('login')->with('error', 'Email or password is incorrect');
+        return redirect()->route('login')->with('error', 'メールアドレスまたはパスワードが間違っています!');
     }
 
     protected function authenticated()
     {
-        if(Auth::user()->role == 0){
+        if(Auth::user()->role == 1){
             return redirect()->route('admin.dashboard')->with('success', 'Welcome to admin dashboard');
         }
         else{
