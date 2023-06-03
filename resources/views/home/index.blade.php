@@ -1,12 +1,13 @@
-@include('../inc/header')
+@include('inc.header')
+@include('layout.app')
 @section('title', 'Home')
 <br>
-@include('/home/restaurantFavorite')
+@include('home.restaurantFavorite')
 <br>
-@include('/home/restaurantHighRate')
+@include('.home.restaurantHighRate')
 <br>
-@include('/home/dishHighRate')
+@include('home.dishHighRate')
 <br>
-@include('../inc/footer')
+@include('inc.footer')
 </body>
 </html>
