@@ -24,8 +24,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->length(6)->nullable();
             $table->float('rating_avg')->nullable();
             $table->tinyInteger('status')->nullable();
-            $table->dateTime('opening_time')->nullable();
-            $table->dateTime('closing_time')->nullable();
+            $table->Time('opening_time')->nullable();
+            $table->Time('closing_time')->nullable();
             $table->tinyInteger('legality')->nullable();
             $table->unsignedBigInteger('city_id')->length(6)->nullable();
             $table->timestamps();
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             // Them khoa ngoai cho TypeID
-            $table->foreign('type_id')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('type_id')->references('id')->on('dish_type')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

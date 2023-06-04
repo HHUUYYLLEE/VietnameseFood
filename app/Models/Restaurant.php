@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Restaurant extends Model
 {
@@ -19,18 +20,14 @@ class Restaurant extends Model
         'type_id', 'number_of_tables', 'user_id', 'rating_avg', 'status', 'opening_time', 'closing_time',
         'legality', 'city_id', 'created_at', 'updated_at'
     ];
-    
+
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id', 'id');
     }
-    public function type()
+    public function dishs():BelongsToMany
     {
-        return $this->belongsTo(Type::class, 'type_id', 'id');
-    }
-    public function dishes()
-    {
-        return $this->hasMany(Dish::class, 'restaurant_id', 'id');
+        return $this->belongsToMany(Dish::class, 'restaurant_menu', 'restaurant_id', 'dish_id');
     }
     public function booking()
     {

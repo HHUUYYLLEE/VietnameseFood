@@ -34,11 +34,11 @@
             @foreach ($dishes as $dish)
                 <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
                     <div class="card position-relative" style="height: auto">
-                        <img class="card-img-top" src="{{ asset($dish->Image_URL) }}" alt="Product image">
+                        <img class="card-img-top" src="{{ asset($dish->image_url) }}" alt="Product image">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div>
-                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$dish->Name}}</h5>
-                                <p class="card-text mt-2">{{$dish->Address}}</p>
+                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$dish->name}}</h5>
+                                <p class="card-text mt-2">{{$dish->address}}</p>
                             </div>
                             <div class="star-button d-flex justify-content-around mt-4">
                                 <div class="star-group">
