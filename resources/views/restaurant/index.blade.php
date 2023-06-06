@@ -2,7 +2,7 @@
 @include('layout.app')
 
 <div class="container-fluid p-4">
-    <div class="row d-flex justify-content-center flex-row p-4">
+    <div class="row d-flex justify-content-around flex-row pl-4 pt-4">
         <div class="sidebar col-lg-3 col-md-6 col-sm-12 border border-warning p-4">
             <div class="card">
                 <div class="card-body">
@@ -108,6 +108,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
         <div class="col-lg-9 d-flex justify-content-center flex-wrap">
             @foreach ($restaurants as $restaurant)
@@ -138,11 +139,37 @@
                             </div>
                             <a href="#" class="btn btn-danger">予約</a>
                         </div>
+=======
+>>>>>>> 907eade94ed82364c3e046b2b8d885168b96ce37
 
+        <div class="col-lg-9 d-flex flex-column align-items-center">
+            <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
+                @foreach ($restaurants as $restaurant)
+                    <div class="restaurant-wrap mb-4" style="width: 31%">
+                        <div class="card position-relative" style="height: 25rem">
+                            <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
+                                    <p class="card-text mt-2">{{$restaurant->address}}</p>
+                                </div>
+                                <div class="star-button d-flex justify-content-around mt-4">
+                                    <div class="star-group">
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <a href="#" class="btn btn-danger">予約</a>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
-            @endforeach
 
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
@@ -165,6 +192,10 @@
 
 @include('inc.footer')
 <style>
+    .restaurant-wrap:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
     .pagination a.active {
         border: 1px solid red;
     }

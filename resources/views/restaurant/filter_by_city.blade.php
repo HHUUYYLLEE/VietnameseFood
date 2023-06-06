@@ -114,7 +114,7 @@
             @foreach ($restaurants_filter as $restaurant)
                 <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
                     <div class="card position-relative" style="height: auto">
-                        <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image">
+                        <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 100%; object-fit: cover;">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div>
                                 <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
