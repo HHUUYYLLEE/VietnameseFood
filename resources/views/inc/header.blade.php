@@ -95,8 +95,6 @@
       const pathUrl = new URL(navLink.getAttribute("href"));
       const path = pathUrl.pathname; // "/dish"
       const pg = path.substring(1); // "dish" 
-      console.log(pg);
-      console.log(page);
       if (pg == page) {
         navLink.classList.add("active");
         //add color red 

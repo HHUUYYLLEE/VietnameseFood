@@ -17,9 +17,9 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 //group Home
 Route::prefix('home')->group(function () {
-   Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-   // trong home gom 3 phan la restaurant noi tieng, restaurant danh gia cao, dish danh gia cao
-   // ae tu chia blade nha
+    Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+    // trong home gom 3 phan la restaurant noi tieng, restaurant danh gia cao, dish danh gia cao
+    // ae tu chia blade nha
 });
 
 Route::prefix('restaurant')->group(function () {
@@ -33,6 +33,8 @@ Route::prefix('restaurant')->group(function () {
 
     //duc: filter theo star
     Route::get('/filterByStar/{star}',  [\App\Http\Controllers\RestaurantController::class, 'filterByStar'])->name('restaurants.filterByStar');
+
+    Route::get('/filterByCriteria',  [\App\Http\Controllers\RestaurantController::class, 'filterByCriteria'])->name('restaurants.filterByCriteria');
 });
 
 Route::prefix('dish')->group(function () {

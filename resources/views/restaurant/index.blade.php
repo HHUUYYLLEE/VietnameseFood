@@ -13,19 +13,19 @@
                     <hr>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish_type1" onclick="filterByDish(1)">ビーフンを売る</h5>
+                        <h5 class="card-title dish dish_type1" onclick="activeDish(1);">ビーフンを売る</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish_type2" onclick="filterByDish(2)">Phoを売る</h5>
+                        <h5 class="card-title dish dish_type2" onclick="activeDish(2);">Phoを売る</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish_type3" onclick="filterByDish(3)">パンを売る</h5>
+                        <h5 class="card-title dish dish_type3" onclick="activeDish(3);">パンを売る</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish_type4" onclick="filterByDish(4)">米を売る</h5>
+                        <h5 class="card-title dish dish_type4" onclick="activeDish(4);">米を売る</h5>
                     </div>
                 </div>
             </div>
@@ -38,24 +38,24 @@
                     <hr>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city1" onclick="filterByCity('Ha Noi')">Ha Noi</h5>
+                        <h5 class="card-title city city_1" onclick="activeCity(1)">Ha Noi</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city2" onclick="filterByCity('Ho Chi Minh')">Ho Chi Minh</h5>
+                        <h5 class="card-title city city_2" onclick="activeCity(2)">Ho Chi Minh</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city3" onclick="filterByCity('Da Nang')">Da Nang</h5>
+                        <h5 class="card-title city city_3" onclick="activeCity(3)">Da Nang</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city4" onclick="filterByCity('Nha Trang')">Nha Trang</h5>
+                        <h5 class="card-title city city_4" onclick="activeCity(4)">Nha Trang</h5>
                     </div>
                 </div>
             </div>
             <div class="star-group-review mt-4">
-                <div class=" five-star-div row-star d-flex justify-content-around" onclick="filterByStar(5)">
+                <div class=" five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
                     <div class="five-star">
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                         <i class="fa-regular fa-star" style="color: yellow"></i>
@@ -64,7 +64,7 @@
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                     </div>
                 </div>
-                <div class="four-star-div row-star d-flex justify-content-around" onclick="filterByStar(4)">
+                <div class="four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
                     <div class="four-star">
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                         <i class="fa-regular fa-star" style="color: yellow"></i>
@@ -75,7 +75,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="three-star-div row-star d-flex justify-content-around" onclick="filterByStar(3)">
+                <div class="three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
                     <div class="three-star">
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                         <i class="fa-regular fa-star" style="color: yellow"></i>
@@ -85,7 +85,7 @@
                     </div>
                     <p>以上</p>
                 </div>
-                <div class="two-star-div row-star d-flex justify-content-around" onclick="filterByStar(2)">
+                <div class="two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
                     <div class="two-star">
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                         <i class="fa-regular fa-star" style="color: yellow"></i>
@@ -96,7 +96,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="one-star-div row-star d-flex justify-content-around" onclick="filterByStar(1)">
+                <div class="one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
                     <div class="one-star">
                         <i class="fa-regular fa-star" style="color: yellow"></i>
                         <i class="fa-regular fa-star"></i>
@@ -108,46 +108,47 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-lg-9 d-flex justify-content-center flex-wrap">
             @foreach ($restaurants as $restaurant)
-                <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
-                    <div class="card position-relative" style="height: auto">
-                        <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
-                                <p class="card-text mt-2">{{$restaurant->address}}</p>
-                            </div>
-                            <div class="star-button d-flex justify-content-around mt-4">
-                                <div class="star-group">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="#" class="btn btn-danger">予約</a>
-                            </div>
-
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
+                <div class="card position-relative" style="height: auto">
+                    <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
+                            <p class="card-text mt-2">{{$restaurant->address}}</p>
                         </div>
+                        <div class="star-button d-flex justify-content-around mt-4">
+                            <div class="star-group">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <a href="#" class="btn btn-danger">予約</a>
+                        </div>
+
                     </div>
                 </div>
+            </div>
             @endforeach
 
-                {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
-                <div class="pagination mt-4">
-                    @if ($restaurants->currentPage() > 1)
-                        <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
-                    @endif
+            {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
+            <div class="pagination mt-4">
+                @if ($restaurants->currentPage() > 1)
+                <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
+                @endif
 
-                    @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-                        <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
+                    <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
                     @endfor
 
                     @if ($restaurants->hasMorePages())
-                        <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
+                    <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
                     @endif
-                </div>
+            </div>
         </div>
 
     </div>
@@ -159,29 +160,90 @@
         border: 1px solid red;
     }
 
-    .dish_type1,.dish_type2,.dish_type3,.dish_type4:hover {
+    .dish_type1,
+    .dish_type2,
+    .dish_type3,
+    .dish_type4:hover {
         cursor: pointer;
     }
 
-    .city1,.city2,.city3,.city4:hover {
+    .city_1,
+    .city_2,
+    .city_3,
+    .city_4:hover {
         cursor: pointer;
     }
 
-    .five-star-div,.four-star-div,.three-star-div,.two-star-div,.one-star-div:hover {
+    .five-star-div,
+    .four-star-div,
+    .three-star-div,
+    .two-star-div,
+    .one-star-div:hover {
         cursor: pointer;
+    }
+
+    .active {
+        color: red;
     }
 </style>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function filterByDish(dishId) {
-        window.location.href = '/restaurant/filterByDish/' + dishId;
+
+    function activeDish(dishId) {
+        $('.dish_type1').removeClass('active');
+        $('.dish_type2').removeClass('active');
+        $('.dish_type3').removeClass('active');
+        $('.dish_type4').removeClass('active');
+        $('.dish_type' + dishId).addClass('active');
     }
 
-    function filterByCity(city) {
-        window.location.href = '/restaurant/filterByCity/' + city;
+    function activeCity(city) {
+        $('.city_1').removeClass('active');
+        $('.city_2').removeClass('active');
+        $('.city_3').removeClass('active');
+        $('.city_4').removeClass('active');
+        $('.city_' + city).addClass('active');
     }
 
-    function filterByStar(star) {
-        window.location.href = '/restaurant/filterByStar/' +star;
+    function activeStar(star) {
+        $('.five-star-div').removeClass('active');
+        $('.four-star-div').removeClass('active');
+        $('.three-star-div').removeClass('active');
+        $('.two-star-div').removeClass('active');
+        $('.one-star-div').removeClass('active');
+        $('.star_' + star).addClass('active');
     }
+    //
+    
+    $(document).ready(function() {
+        $('.dish , .city , .star').click(function() {
+            //get dish active id
+            if ($('.dish.active').attr('class') == undefined) {
+                var activeDishId = 0;
+            } else {
+                var activeDishId = $('.dish.active').attr('class').split(' ')[2].split('dish_type')[1];
+            }
+            //get city active id
+            if ($('.city.active').attr('class') == undefined) {
+                var activeCityId = 0;
+            } else {
+                var activeCityId = $('.city.active').attr('class').split(' ')[2].split('_')[1];
+            }
+            //get star active id
+            if($('.star.active').attr('class') == undefined){
+                var activeStarId = 0;
+            }else{
+                var activeStarId = $('.star.active').attr('class').split(' ')[2].split('_')[1];
+            }
+            window.location.href = '/restaurant/filterByCriteria?dishID=' + activeDishId + '&cityID=' + activeCityId + '&star=' + activeStarId;
+        })
+        //get dishId, cityId, starId from url
+        var url = window.location.href;
+        var $dishId = url.split('dishID=')[1].split('&')[0];
+        var $cityId = url.split('cityID=')[1].split('&')[0];
+        var $star = url.split('star=')[1];
+        activeDish($dishId);
+        activeCity($cityId);
+        activeStar($star);
+    })
 </script>
