@@ -84,3 +84,63 @@
   font-weight: 500;
   color: white;
 }
+
+hr:after {
+  background: #fff;
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+}
+
+#dishes-high-rate hr {
+  border: none;
+  border-top: 3px solid #333;
+  color: #333;
+  text-align: center;
+  height: 10px;
+}
+
+#dishes-high-rate hr::after {
+  content: "多くの人が検索の料理";
+}
+
+#dishes-high-rate .dishes {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#dishes-high-rate .custom-input {
+  border: none;
+}
+
+#restaurant-high-rate hr {
+  border: none;
+  border-top: 3px solid #333;
+  color: #333;
+  text-align: center;
+  height: 10px;
+}
+
+#restaurant-high-rate hr::after {
+  content: "いい評価レストラン";
+}
+
+#restaurant-high-rate .restaurant {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#restaurant-high-rate .custom-input {
+  border: none;
+}
