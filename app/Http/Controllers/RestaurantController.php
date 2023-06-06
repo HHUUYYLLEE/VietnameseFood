@@ -11,7 +11,7 @@ class RestaurantController extends Controller
     //
     public function index()
     {
-        $restaurants = Restaurant::paginate(9);
+        $restaurants = Restaurant::orderByDesc('rating_avg')->paginate(9);
         return view('restaurant.index', compact('restaurants'));
     }
     // filter by dish function
@@ -70,11 +70,11 @@ class RestaurantController extends Controller
         if ($starID) {
             $query->where('rating_avg', '>=', $starID);
         }
-        
+
         // Thực hiện truy vấn và lấy ra kết quả phân trang
-        $restaurants = $query->paginate(9);
+        $restaurants = $query->orderByDesc('rating_avg')->paginate(9);
 
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
-        return view('restaurant.index', compact('restaurants','dishID', 'cityID', 'starID'));
+        return view('restaurant.index', compact('restaurants', 'dishID', 'cityID', 'starID'));
     }
 }

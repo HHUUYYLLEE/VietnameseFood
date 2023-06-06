@@ -57,19 +57,19 @@
             <div class="star-group-review mt-4">
                 <div class=" five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
                     <div class="five-star">
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
                 </div>
                 <div class="four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
                     <div class="four-star">
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
                     <p>以上</p>
@@ -77,9 +77,9 @@
 
                 <div class="three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
                     <div class="three-star">
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
@@ -87,8 +87,8 @@
                 </div>
                 <div class="two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
                     <div class="two-star">
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
@@ -98,7 +98,7 @@
 
                 <div class="one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
                     <div class="one-star">
-                        <i class="fa-regular fa-star" style="color: yellow"></i>
+                        <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
@@ -108,7 +108,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-9 d-flex justify-content-center flex-wrap">
             @foreach ($restaurants as $restaurant)
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
@@ -120,12 +120,21 @@
                             <p class="card-text mt-2">{{$restaurant->address}}</p>
                         </div>
                         <div class="star-button d-flex justify-content-around mt-4">
+                            @php
+                            $star = $restaurant->rating_avg;
+                            $maxRating = 5;
+                            $percent = ($star / $maxRating) * 100;
+                            @endphp
+
                             <div class="star-group">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
+                                    <i class="fas fa-star"></i>
+                                    @elseif ($percent >= ($i - 0.5) * 20)
+                                    <i class="fas fa-star-half-alt"></i>
+                                    @else
+                                    <i class="far fa-star"></i>
+                                    @endif
+                                    @endfor
                             </div>
                             <a href="#" class="btn btn-danger">予約</a>
                         </div>
@@ -185,10 +194,14 @@
     .active {
         color: red;
     }
+
+    .fa-star,
+    .fa-star-half-alt {
+        color: #D4B122;
+    }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-
     function activeDish(dishId) {
         $('.dish_type1').removeClass('active');
         $('.dish_type2').removeClass('active');
@@ -214,7 +227,7 @@
         $('.star_' + star).addClass('active');
     }
     //
-    
+
     $(document).ready(function() {
         $('.dish , .city , .star').click(function() {
             //get dish active id
@@ -230,9 +243,9 @@
                 var activeCityId = $('.city.active').attr('class').split(' ')[2].split('_')[1];
             }
             //get star active id
-            if($('.star.active').attr('class') == undefined){
+            if ($('.star.active').attr('class') == undefined) {
                 var activeStarId = 0;
-            }else{
+            } else {
                 var activeStarId = $('.star.active').attr('class').split(' ')[2].split('_')[1];
             }
             window.location.href = '/restaurant/filterByCriteria?dishID=' + activeDishId + '&cityID=' + activeCityId + '&star=' + activeStarId;
