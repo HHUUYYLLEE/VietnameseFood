@@ -23,13 +23,21 @@ Route::prefix('home')->group(function () {
 });
 
 Route::prefix('restaurant')->group(function () {
-    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
     //duc: nay la restaurant ichiran
+    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
+    //duc: filter theo dish_type
+    Route::get('/filterByDish/{dish_id}',  [\App\Http\Controllers\RestaurantController::class, 'filterByDish'])->name('restaurants.filterByDish');
+
+    //duc: filter theo city
+    Route::get('/filterByCity/{city}',  [\App\Http\Controllers\RestaurantController::class, 'filterByCity'])->name('restaurants.filterByCity');
+
+    //duc: filter theo star
+    Route::get('/filterByStar/{star}',  [\App\Http\Controllers\RestaurantController::class, 'filterByStar'])->name('restaurants.filterByStar');
 });
 
 Route::prefix('dish')->group(function () {
-    Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
     //duc: nay la dish ichiran
+    Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
 });
 
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');

@@ -2,7 +2,8 @@
 @include('layout.app')
 
 <div class="container-fluid p-4">
-    <div class="row d-flex justify-content-center flex-row p-4">
+    <div class="row d-flex justify-content-around flex-row p-4">
+
         <div class="sidebar col-lg-3 col-md-6 col-sm-12 border border-warning p-4">
             <div class="card">
                 <div class="card-body">
@@ -108,8 +109,9 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-9 d-flex justify-content-center flex-wrap">
-            @foreach ($restaurants as $restaurant)
+            @foreach ($restaurants_filter as $restaurant)
                 <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
                     <div class="card position-relative" style="height: auto">
                         <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image">
@@ -134,20 +136,21 @@
                 </div>
             @endforeach
 
-                {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
-                <div class="pagination mt-4">
-                    @if ($restaurants->currentPage() > 1)
-                        <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
-                    @endif
+            {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
+            <div class="pagination mt-4">
+                @if ($restaurants_filter->currentPage() > 1)
+                    <a href="{{ $restaurants_filter->previousPageUrl() }}" class="page-link">前</a>
+                @endif
 
-                    @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-                        <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
+                @for ($i = 1; $i <= $restaurants_filter->lastPage(); $i++)
+                    <a href="{{ $restaurants_filter->url($i) }}" class="page-link{{ ($restaurants_filter->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                @endfor
 
-                    @if ($restaurants->hasMorePages())
-                        <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
-                    @endif
-                </div>
+                @if ($restaurants_filter->hasMorePages())
+                    <a href="{{ $restaurants_filter->nextPageUrl() }}" class="page-link">次</a>
+                @endif
+            </div>
+
         </div>
 
     </div>
@@ -159,7 +162,7 @@
         border: 1px solid red;
     }
 
-    .dish_type1,.dish_type2,.dish_type3,.dish_type4:hover {
+    .dish_type1,.dish_type2,.dish_type3,.dish_type4:hover{
         cursor: pointer;
     }
 
@@ -167,9 +170,14 @@
         cursor: pointer;
     }
 
+    .highlight{
+        color: red;
+    }
+
     .five-star-div,.four-star-div,.three-star-div,.two-star-div,.one-star-div:hover {
         cursor: pointer;
     }
+
 </style>
 
 <script>
@@ -184,4 +192,53 @@
     function filterByStar(star) {
         window.location.href = '/restaurant/filterByStar/' +star;
     }
+
+    // to mau theo dish
+    const dishType1Node = document.querySelector('.dish_type1');
+    const dishType2Node = document.querySelector('.dish_type2');
+    const dishType3Node = document.querySelector('.dish_type3');
+    const dishType4Node = document.querySelector('.dish_type4');
+
+    const path_dish = window.location.pathname;
+    const dishId = parseInt(path_dish.split('/').pop());
+    switch (dishId){
+        case 1:
+            dishType1Node.classList.add("highlight");
+            break;
+        case 2:
+            dishType2Node.classList.add("highlight");
+            break;
+        case 3:
+            dishType3Node.classList.add("highlight");
+            break;
+        case 4:
+            dishType3Node.classList.add("highlight");
+            break;
+    }
+
+    // to mau theo city
+    const city1Node = document.querySelector('.city1');
+    const city2Node = document.querySelector('.city2');
+    const city3Node = document.querySelector('.city3');
+    const city4Node = document.querySelector('.city4');
+
+    const path_city = window.location.pathname;
+    const city = path_city.split('/').pop();
+    console.log(city);
+    switch (city) {
+        case 'Ha%20Noi':
+            city1Node.classList.add("highlight");
+            break;
+        case 'Ho%20Chi%20Minh':
+            city2Node.classList.add("highlight");
+            break;
+        case 'Da%20Nang':
+            city3Node.classList.add("highlight");
+            break;
+        case 'Nha%20Trang':
+            city4Node.classList.add("highlight");
+            break;
+    }
 </script>
+
+
