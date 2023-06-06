@@ -108,7 +108,8 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
+
+
 
         <div class="col-lg-9 d-flex justify-content-center flex-wrap">
             @foreach ($restaurants as $restaurant)
@@ -139,61 +140,37 @@
                             </div>
                             <a href="#" class="btn btn-danger">予約</a>
                         </div>
-=======
->>>>>>> 907eade94ed82364c3e046b2b8d885168b96ce37
 
-        <div class="col-lg-9 d-flex flex-column align-items-center">
-            <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
-                @foreach ($restaurants as $restaurant)
-                    <div class="restaurant-wrap mb-4" style="width: 31%">
-                        <div class="card position-relative" style="height: 25rem">
-                            <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <div>
-                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
-                                    <p class="card-text mt-2">{{$restaurant->address}}</p>
-                                </div>
-                                <div class="star-button d-flex justify-content-around mt-4">
-                                    <div class="star-group">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <a href="#" class="btn btn-danger">予約</a>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
-                @endforeach
-
+                </div>
             </div>
+            @endforeach
 
-            {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
-            <div class="pagination mt-4">
-                @if ($restaurants->currentPage() > 1)
-                <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
-                @endif
-
-                @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-                    <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
-
-                    @if ($restaurants->hasMorePages())
-                    <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
-                    @endif
-            </div>
         </div>
 
+        {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
+        <div class="pagination mt-4">
+            @if ($restaurants->currentPage() > 1)
+            <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
+            @endif
+
+            @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
+                <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                @endfor
+
+                @if ($restaurants->hasMorePages())
+                <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
+                @endif
+        </div>
     </div>
+
+</div>
 </div>
 
 @include('inc.footer')
 <style>
     .restaurant-wrap:hover {
-        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     }
 
     .pagination a.active {
