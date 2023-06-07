@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="star-group-review mt-4">
-                <div class=" five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
+                <div class="star five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
                     <div class="five-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -65,7 +65,7 @@
                     </div>
                     <p class="invisible">以上</p>
                 </div>
-                <div class="four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
+                <div class="star four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
                     <div class="four-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -76,7 +76,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
+                <div class="star three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
                     <div class="three-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -86,7 +86,7 @@
                     </div>
                     <p>以上</p>
                 </div>
-                <div class="two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
+                <div class="star two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
                     <div class="two-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -97,7 +97,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
+                <div class="star one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
                     <div class="one-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
