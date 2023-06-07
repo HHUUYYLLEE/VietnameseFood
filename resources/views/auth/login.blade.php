@@ -54,7 +54,7 @@
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                 <label class="form-check-label" for="remember" style="font-size:x-small; font-weight:bold">
-                  {{ __('私を覚えてくれくれ') }}
+                  {{ __('私を覚えてくれ') }}
                 </label>
               </div>
             </div>
@@ -64,7 +64,7 @@
                 {{ __('ログイン') }}
               </button>
             </div>
-            <p class="text-center" style="font-size:x-small; font-weight:bold">メンバーじゃないか？
+            <p class="text-right w-100" style="font-size:x-small; font-weight:bold">メンバーじゃないか？
               <a href="{{ route('register')}}" style="color: #fda491; font-size:x-small; font-weight:bold">すぐサインアップ</a>
             </p>
           </form>

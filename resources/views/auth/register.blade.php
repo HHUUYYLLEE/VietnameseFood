@@ -82,7 +82,7 @@
                                 {{ __('サインアップ') }}
                             </button>
                         </div>
-                        <p class="text-center" style="font-size:x-small; font-weight:bold">もうメンバになりましたか？
+                        <p class="text-right w-100" style="font-size:x-small; font-weight:bold">もうメンバになりましたか？
                             <a href="{{ route('login') }}" style="color: #fda491; font-size:x-small; font-weight:bold">すぐログイン</a>
                         </p>
                     </form>
