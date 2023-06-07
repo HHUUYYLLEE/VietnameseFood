@@ -13,7 +13,7 @@
                   style="font-size: 2rem; font-weight: bold; color: red"
                 >{{ $restaurant->name }}</h5>
                 <input type="text" class="custom-input" placeholder="{{ $restaurant->address }}" />...
-                <div class="star-button d-flex justify-content-around mt-4">
+                <div class="star-button d-flex justify-content-between mt-4">
                   @php
                     $star = $restaurant->rating_avg;
                     $maxRating = 5;
