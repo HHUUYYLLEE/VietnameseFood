@@ -136,7 +136,7 @@ hr:after {
 #restaurant-high-rate .restaurant {
   margin-top: 30px;
   margin-bottom: 100px;
-  height: 400px;
+  height: 465px;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -181,4 +181,86 @@ hr:after {
 
 .card.position-relative:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.restaurant-wrap:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.pagination a.active {
+  border: 1px solid red;
+}
+
+.category-title {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.city-box {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h5.card-title {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.dish_type1,
+.dish_type2,
+.dish_type3,
+.dish_type4{
+  padding-left: 5px;
+}
+
+.dish_type1,
+.dish_type2,
+.dish_type3,
+.dish_type4:hover {
+  cursor: pointer;
+}
+
+.city_1,
+.city_2,
+.city_3,
+.city_4{
+  padding-left: 5px;
+}
+
+.city_1,
+.city_2,
+.city_3,
+.city_4:hover {
+  cursor: pointer;
+}
+
+.five-star-div,
+.four-star-div,
+.three-star-div,
+.two-star-div,
+.one-star-div:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+}
+
+.active .fa-star {
+  color: red;
+}
+
+.fa-star,
+.fa-star-half-alt {
+  color: #D4B122;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #FEF7F7;
 }

@@ -12,7 +12,8 @@ class HomeController extends Controller
     public function index()
     {
         $dishes = Dish::inRandomOrder()->limit(4)->get();
-        $restaurants = Restaurant::orderByDesc('rating_avg')->take(4)->get();
-        return view('home.index', compact('dishes', 'restaurants'));
+        $restaurants_high_rate = Restaurant::orderByDesc('rating_avg')->take(4)->get();
+        $restaurants_favorite = Restaurant::orderByDesc('rating_avg')->limit(3)->get();
+        return view('home.index', compact('dishes', 'restaurants_high_rate', 'restaurants_favorite'));
     }
 }

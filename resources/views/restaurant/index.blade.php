@@ -12,20 +12,20 @@
                     </div>
                     <hr>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type1" onclick="activeDish(1);">ビーフンを売る</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title dish dish_type1" onclick="activeDish(1);"> ビーフンを売る</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-greater-than"></i>
                         <h5 class="card-title dish dish_type2" onclick="activeDish(2);">Phoを売る</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type3" onclick="activeDish(3);">パンを売る</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title dish dish_type3" onclick="activeDish(3);"> パンを売る</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type4" onclick="activeDish(4);">米を売る</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title dish dish_type4" onclick="activeDish(4);"> 米を売る</h5>
                     </div>
                 </div>
             </div>
@@ -37,24 +37,27 @@
                     </div>
                     <hr>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city city_1" onclick="activeCity(1)">Ha Noi</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title city city_1" onclick="activeCity(1)"> Ha Noi</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city city_2" onclick="activeCity(2)">Ho Chi Minh</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title city city_2" onclick="activeCity(2)"> Ho Chi Minh</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city city_3" onclick="activeCity(3)">Da Nang</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title city city_3" onclick="activeCity(3)"> Da Nang</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title city city_4" onclick="activeCity(4)">Nha Trang</h5>
+                        <i class="fa-solid fa-greater-than"></i>
+                        <h5 class="card-title city city_4" onclick="activeCity(4)"> Nha Trang</h5>
                     </div>
                 </div>
             </div>
             <div class="star-group-review mt-4">
+                <div class="sidebar-title d-flex" style="margin-left: 45px;">
+                    <h5 class="star-box card-title" style="color: red">評価</h5>
+                </div>
                 <div class="star five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
                     <div class="five-star">
                         <i class="fa-solid fa-star"></i>
@@ -182,7 +185,7 @@
 </div>
 
 @include('inc.footer')
-<style>
+<!-- <style>
     .restaurant-wrap:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     }
@@ -248,15 +251,20 @@
         border-radius: 10px;
         background-color: #FEF7F7;
     }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</style> -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script>
+    
     function activeDish(dishId) {
         $('.dish_type1').removeClass('active');
         $('.dish_type2').removeClass('active');
         $('.dish_type3').removeClass('active');
         $('.dish_type4').removeClass('active');
         $('.dish_type' + dishId).addClass('active');
+
+        // Show '>' when click on dish
+        $('.dish_type' + dishId).parent().find('.fa-greater-than').css('color', 'red')
+        $('.dish_type' + dishId).parent().find('.fa-greater-than').show();
     }
 
     function activeCity(city) {
@@ -265,6 +273,9 @@
         $('.city_3').removeClass('active');
         $('.city_4').removeClass('active');
         $('.city_' + city).addClass('active');
+
+        $('.city_' + city).parent().find('.fa-greater-than').css('color', 'red')
+        $('.city_' + city).parent().find('.fa-greater-than').show();
     }
 
     function activeStar(star) {
@@ -275,9 +286,10 @@
         $('.one-star-div').removeClass('active');
         $('.star_' + star).addClass('active');
     }
-    //
 
     $(document).ready(function() {
+        // Hide '>'
+        $('.fa-greater-than').hide();
         $('.dish , .city , .star').click(function() {
             //get dish active id
             if ($('.dish.active').attr('class') == undefined) {

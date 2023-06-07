@@ -7,14 +7,13 @@
         ></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
       </ol>
       <div class="carousel-inner">
-        @foreach($restaurants as $restaurant)
+        @foreach($restaurants_favorite as $restaurant)
           @if ($loop->first)
             <div class="carousel-item active">
               <div class="carousel-caption">
-                <h2>一番人気があるレストラン</h2>
+                <h2 style="width: 110%">一番人気がある<br />レストラン</h2>
               </div>
               <img
                 class="d-block w-100"
@@ -25,7 +24,7 @@
           @else
             <div class="carousel-item">
               <div class="carousel-caption">
-                <h2>一番人気があるレストラン</h2>
+                <h2 style="width: 110%">一番人気がある<br />レストラン</h2>
               </div>
               <img
                 class="d-block w-100"

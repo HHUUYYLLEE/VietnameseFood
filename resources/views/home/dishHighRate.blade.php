@@ -5,16 +5,16 @@
         @foreach($dishes as $dish)
         <div class="col mt-4 d-flex justify-content-center">
           <div class="card position-relative" style="height: auto; width: 80%">
-            <img class="card-img-top" src="{{ $dish->image_url }}" alt="Product image"/>
+            <img class="card-img-top" src="{{ $dish->image_url }}" alt="Product image" style="height: 60%; object-fit: cover;"/>
             <div class="card-body d-flex flex-column justify-content-between">
-              <div>
+              <div style="text-align:left">
                 <h5
                   class="card-title"
                   style="font-size: 2rem; font-weight: bold; color: red"
                 ></h5>
                 <p class="card-text mt-2"></p>
                 <h5>{{ $dish->name }}</h5>
-                <input type="text" class="custom-input" placeholder="{{ $dish->introduction }}" />
+                <input type="text" class="custom-input" placeholder="{{ $dish->introduction }}" />...
               </div>
             </div>
           </div>
