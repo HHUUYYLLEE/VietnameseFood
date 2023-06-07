@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Dung Danh Dan</title>
   <link rel="stylesheet" href=" {{ asset('css/style.css') }}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,13 +30,13 @@
       <div class="advise">11111111111でのアドバイスの連絡先</div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">
-                <img src="https://png.pngtree.com/png-clipart/20210801/ourmid/pngtree-lettering-doodle-vietnamese-food-typography-with-illustration-png-image_3764952.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top" />
-                VietnameseFood
-              </a>
-            </div>
+          <nav class="navbar bg-body-tertiary p-0 m-0">
+
+            <a class="navbar-brand" href="/">
+              <img src="logo.png" alt="Logo" width="50 " height="50" class="d-inline-block align-text-top" />
+            </a>
+
+
           </nav>
 
           <form class="d-flex space-modifier" role="search">
@@ -77,26 +77,41 @@
               <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
             </div>
           </div>
+          @php
+
+          @endphp
           @endguest
         </div>
       </nav>
     </div>
   </header>
+  <style>
+    .nav-link {
+      font-weight: 600;
+    }
 
+    .navbar .navb{
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+    }
+  </style>
   <script>
     // red color the nav-link if this page is nav-link's page
     var url = new URL(window.location.href);
     var pathPage = url.pathname; // "/dish"
+    if (pathPage == "/") {
+      pathPage = "/home";
+    }
     var page = pathPage.substring(1); // "dish" 
+    page = page.split("/")[0];
+    console.log(page);
     var navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((navLink) => {
       // example http://localhost/dish?page=3 -> dish
 
       const pathUrl = new URL(navLink.getAttribute("href"));
-      const path = pathUrl.pathname; // "/dish"
+      const path = pathUrl.pathname; // "/restaurant/fileter  "
       const pg = path.substring(1); // "dish" 
-      console.log(pg);
-      console.log(page);
       if (pg == page) {
         navLink.classList.add("active");
         //add color red 
