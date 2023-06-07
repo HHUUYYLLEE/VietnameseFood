@@ -63,7 +63,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p>以上</p>
+                    <p class="invisible">以上</p>
                 </div>
                 <div class="four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
                     <div class="four-star">
@@ -207,7 +207,7 @@
     .active .fa-star{
         color: red;
     }
-    
+
     .fa-star,
     .fa-star-half-alt {
         color: #D4B122;
