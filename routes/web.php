@@ -17,19 +17,29 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 //group Home
 Route::prefix('home')->group(function () {
-   Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-   // trong home gom 3 phan la restaurant noi tieng, restaurant danh gia cao, dish danh gia cao
-   // ae tu chia blade nha
+    Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+    // trong home gom 3 phan la restaurant noi tieng, restaurant danh gia cao, dish danh gia cao
+    // ae tu chia blade nha
 });
 
 Route::prefix('restaurant')->group(function () {
-    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
     //duc: nay la restaurant ichiran
+    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
+    //duc: filter theo dish_type
+    Route::get('/filterByDish/{dish_id}',  [\App\Http\Controllers\RestaurantController::class, 'filterByDish'])->name('restaurants.filterByDish');
+
+    //duc: filter theo city
+    Route::get('/filterByCity/{city}',  [\App\Http\Controllers\RestaurantController::class, 'filterByCity'])->name('restaurants.filterByCity');
+
+    //duc: filter theo star
+    Route::get('/filterByStar/{star}',  [\App\Http\Controllers\RestaurantController::class, 'filterByStar'])->name('restaurants.filterByStar');
+
+    Route::get('/filterByCriteria',  [\App\Http\Controllers\RestaurantController::class, 'filterByCriteria'])->name('restaurants.filterByCriteria');
 });
 
 Route::prefix('dish')->group(function () {
-    Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
     //duc: nay la dish ichiran
+    Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
 });
 
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');

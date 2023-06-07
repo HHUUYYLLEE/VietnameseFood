@@ -30,7 +30,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '10:00:00',
                 'closing_time' => '22:00:00',
                 'legality' => 1,
-                'city_id' => 1,
+                'city_id' => 2,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -64,7 +64,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '11:00:00',
                 'closing_time' => '23:00:00',
                 'legality' => 1,
-                'city_id' => 3,
+                'city_id' => 2,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -81,7 +81,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '10:30:00',
                 'closing_time' => '22:30:00',
                 'legality' => 1,
-                'city_id' => 4,
+                'city_id' => 2,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -98,7 +98,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -115,7 +115,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -132,7 +132,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -149,7 +149,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -166,7 +166,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -183,7 +183,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -200,7 +200,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -217,7 +217,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -234,7 +234,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -251,7 +251,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -268,7 +268,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -285,7 +285,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -302,7 +302,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -319,7 +319,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -336,7 +336,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -353,7 +353,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -370,7 +370,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -387,7 +387,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -404,7 +404,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -421,7 +421,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -438,7 +438,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -455,7 +455,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -472,7 +472,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -489,7 +489,7 @@ class RestaurantSeeder extends Seeder
                 'opening_time' => '08:00:00',
                 'closing_time' => '21:00:00',
                 'legality' => 1,
-                'city_id' => 2,
+                'city_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],

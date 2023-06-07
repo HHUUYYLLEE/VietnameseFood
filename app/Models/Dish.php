@@ -19,6 +19,6 @@ class Dish extends Model
     }
     public function restaurants():BelongsToMany
     {
-        return $this->belongsToMany(Restaurant::class, 'restaurant_menu', 'dish_id', 'restaurant_id');
+        return $this->belongsToMany(Restaurant::class, 'restaurant_menus', 'dish_id', 'restaurant_id');
     }
 }
