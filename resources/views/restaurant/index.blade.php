@@ -112,37 +112,37 @@
 
 
 
-        <div class="col-lg-9 d-flex justify-content-center flex-wrap">
-            @foreach ($restaurants as $restaurant)
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4" style="width: 80%">
-                <div class="card position-relative" style="height: auto">
-                    <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <div>
-                            <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
-                            <p class="card-text mt-2">{{$restaurant->address}}</p>
-                        </div>
-                        <div class="star-button d-flex justify-content-around mt-4">
-                            @php
-                            $star = $restaurant->rating_avg;
-                            $maxRating = 5;
-                            $percent = ($star / $maxRating) * 100;
-                            @endphp
+        <div class="col-lg-9 d-flex flex-column align-items-center">
+            <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
+                @foreach ($restaurants as $restaurant)
+                    <div class="restaurant-wrap mb-4" style="width: 31%">
+                        <div class="card position-relative" style="height: 25rem">
+                            <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
+                                    <p class="card-text mt-2">{{$restaurant->address}}</p>
+                                </div>
+                            <div class="star-button d-flex justify-content-around mt-4">
+                                @php
+                                $star = $restaurant->rating_avg;
+                                $maxRating = 5;
+                                $percent = ($star / $maxRating) * 100;
+                                @endphp
 
-                            <div class="star-group">
-                                @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
-                                    <i class="fas fa-star"></i>
-                                    @elseif ($percent >= ($i - 0.5) * 20)
-                                    <i class="fas fa-star-half-alt"></i>
-                                    @else
-                                    <i class="far fa-star"></i>
-                                    @endif
-                                    @endfor
+                                <div class="star-group">
+                                    @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
+                                        <i class="fas fa-star"></i>
+                                        @elseif ($percent >= ($i - 0.5) * 20)
+                                        <i class="fas fa-star-half-alt"></i>
+                                        @else
+                                        <i class="far fa-star"></i>
+                                        @endif
+                                        @endfor
+                                </div>
+                                <a href="#" class="btn btn-danger">予約</a>
                             </div>
-                            <a href="#" class="btn btn-danger">予約</a>
-                        </div>
-
-                    </div>
+                         </div>
                 </div>
             </div>
             @endforeach
