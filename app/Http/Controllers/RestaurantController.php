@@ -49,7 +49,7 @@ class RestaurantController extends Controller
         // Lấy ra các tham số được gửi lên từ form
         $cityID = $request->cityID;
         $dishID = $request->dishID;
-        $starID = $request->star;
+        $starID = $request->starID;
 
         // Xây dựng câu truy vấn để lọc các nhà hàng theo các tiêu chí city, dish, star
         $query = Restaurant::query();
@@ -70,10 +70,9 @@ class RestaurantController extends Controller
         if ($starID) {
             $query->where('rating_avg', '>=', $starID);
         }
-
+        
         // Thực hiện truy vấn và lấy ra kết quả phân trang
         $restaurants = $query->orderByDesc('rating_avg')->paginate(9);
-
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
         return view('restaurant.index', compact('restaurants', 'dishID', 'cityID', 'starID'));
     }
