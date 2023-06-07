@@ -12,19 +12,19 @@
                     </div>
                     <hr>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-greater-than"></i>
                         <h5 class="card-title dish dish_type1" onclick="activeDish(1)">ビーフン</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-greater-than"></i>
                         <h5 class="card-title dish dish_type2" onclick="activeDish(2)">Pho</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-greater-than"></i>
                         <h5 class="card-title dish dish_type3" onclick="activeDish(3)">パン</h5>
                     </div>
                     <div class="category-item d-flex">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-greater-than"></i>
                         <h5 class="card-title dish dish_type4" onclick="activeDish(4)">米</h5>
                     </div>
                 </div>
@@ -162,9 +162,15 @@
         $('.dish_type3').removeClass('active');
         $('.dish_type4').removeClass('active');
         $('.dish_type' + dishId).addClass('active');
+
+        $('.dish_type' + dishId).parent().find('.fa-greater-than').css('color', 'red')
+        $('.dish_type' + dishId).parent().find('.fa-greater-than').show();
     }
 
     $(document).ready(function() {
+        // Hide '>'
+        $('.fa-greater-than').hide();
+
         $('.dish').click(function() {
             //get dish active id
             if ($('.dish.active').attr('class') == undefined) {
