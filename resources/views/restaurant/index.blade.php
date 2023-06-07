@@ -115,14 +115,14 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($restaurants as $restaurant)
-                    <div class="restaurant-wrap mb-4" style="width: 31%">
-                        <div class="card position-relative" style="height: 25rem">
-                            <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <div>
-                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
-                                    <p class="card-text mt-2">{{$restaurant->address}}</p>
-                                </div>
+                <div class="restaurant-wrap mb-4" style="width: 31%">
+                    <div class="card position-relative" style="height: 25rem">
+                        <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
+                                <p class="card-text mt-2">{{$restaurant->address}}</p>
+                            </div>
                             <div class="star-button d-flex justify-content-around mt-4">
                                 @php
                                 $star = $restaurant->rating_avg;
@@ -142,30 +142,43 @@
                                 </div>
                                 <a href="#" class="btn btn-danger">予約</a>
                             </div>
-                         </div>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
+
             </div>
-            @endforeach
-
-        </div>
-
-        {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
-        <div class="pagination mt-4">
-            @if ($restaurants->currentPage() > 1)
-            <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
-            @endif
-
-            @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-                <a href="{{ $restaurants->url($i) }}" class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                @endfor
-
-                @if ($restaurants->hasMorePages())
-                <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
+            {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
+            <div class="pagination mt-4">
+                @if ($restaurants->currentPage() > 1)
+                <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
                 @endif
-        </div>
-    </div>
 
-</div>
+                @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
+                    @php
+                    if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['star'])){
+                    $dishID = $_GET['dishID'];
+                    $cityID = $_GET['cityID'];
+                    $star = $_GET['star'];
+                    $links = $restaurants->url($i) . '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&star=' . $star;
+                    }
+                    else{
+                    $links = $restaurants->url($i);
+                    }
+
+
+                    @endphp
+                    <a href="{{$links }} " class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                    @endfor
+
+                    @if ($restaurants->hasMorePages())
+                    <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
+                    @endif
+            </div>
+        </div>
+
+
+    </div>
 </div>
 
 @include('inc.footer')
@@ -204,7 +217,7 @@
         color: red;
     }
 
-    .active .fa-star{
+    .active .fa-star {
         color: red;
     }
 
@@ -265,9 +278,22 @@
         })
         //get dishId, cityId, starId from url
         var url = window.location.href;
-        var $dishId = url.split('dishID=')[1].split('&')[0];
-        var $cityId = url.split('cityID=')[1].split('&')[0];
-        var $star = url.split('star=')[1];
+        if (url.split('dishID=')[1] == undefined) {
+            var $dishId = 0;
+        } else {
+            var $dishId = url.split('dishID=')[1].split('&')[0];
+        }
+        if (url.split('cityID=')[1] == undefined) {
+            var $cityId = 0;
+        } else {
+            var $cityId = url.split('cityID=')[1].split('&')[0];
+        }
+        if(url.split('star=')[1] == undefined){
+            var $star = 0;
+        }
+        else{
+            var $star = url.split('star=')[1];
+        }
         activeDish($dishId);
         activeCity($cityId);
         activeStar($star);

@@ -77,6 +77,9 @@
               <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
             </div>
           </div>
+          @php
+
+          @endphp
           @endguest
         </div>
       </nav>
@@ -88,12 +91,14 @@
     var url = new URL(window.location.href);
     var pathPage = url.pathname; // "/dish"
     var page = pathPage.substring(1); // "dish" 
+    page = page.split("/")[0];
+    console.log(page);
     var navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((navLink) => {
       // example http://localhost/dish?page=3 -> dish
 
       const pathUrl = new URL(navLink.getAttribute("href"));
-      const path = pathUrl.pathname; // "/dish"
+      const path = pathUrl.pathname; // "/restaurant/fileter  "
       const pg = path.substring(1); // "dish" 
       if (pg == page) {
         navLink.classList.add("active");
