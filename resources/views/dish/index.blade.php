@@ -13,19 +13,19 @@
                     <hr>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type1">ビーフン</h5>
+                        <h5 class="card-title dish dish_type1" onclick="activeDish(1)">ビーフン</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type2">Pho</h5>
+                        <h5 class="card-title dish dish_type2" onclick="activeDish(2)">Pho</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type3">パン</h5>
+                        <h5 class="card-title dish dish_type3" onclick="activeDish(3)">パン</h5>
                     </div>
                     <div class="category-item d-flex">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <h5 class="card-title dish dish_type4">米</h5>
+                        <h5 class="card-title dish dish_type4" onclick="activeDish(4)">米</h5>
                     </div>
                 </div>
             </div>
@@ -34,22 +34,20 @@
             <div class="dish-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($dishes as $dish)
                     <div class="dish-wrap mb-4" style="width: 31%">
-                        <div class="card position-relative" style="height: 25rem">
+                        <div class="card dish-box dish-box-height position-relative">
                             <img class="card-img-top" src="{{ asset($dish->image_url) }}" alt="Product image" style="height: 55%; object-fit: cover;">
                             <div class="card-body d-flex flex-column justify-content-between">
                                 <div>
                                     <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$dish->name}}</h5>
                                     <p class="card-text mt-2">{{$dish->address}}</p>
                                 </div>
-                                <div class="star-button d-flex justify-content-around mt-4">
-                                    <div class="star-group">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <a href="#" class="btn btn-danger">予約</a>
+                                <div class="dish-description mt-2">
+                                    <p class="visible dish-description-btn" onclick="displayDescription(event)">
+                                        説明…
+                                    </p>
+                                    <p class="invisible description-detail">
+                                        {{$dish->introduction}}
+                                    </p>
                                 </div>
 
                             </div>
@@ -84,6 +82,14 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
+    .dish-box-height {
+        height: 25rem;
+    }
+
+    .dish-box-height-modify {
+        height: auto;
+    }
+
     .pagination a.active {
         border: 1px solid red;
     }
@@ -111,4 +117,70 @@
         color: red;
     }
 
+    .dish-description-btn {
+        font-size: 20px;
+        color: #783232;
+    }
+
+    .dish-description-btn:hover{
+        cursor: pointer;
+        color: red;
+    }
 </style>
+
+{{--Jquery--}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function displayDescription($event) {
+
+        const clickedElement = $event.target;
+        const parentElement = clickedElement.closest('.dish-description'); // Tìm phần tử cha gần nhất có class 'dish-description'
+        const descriptionDetail = parentElement.querySelector('.description-detail'); // Tìm phần tử 'description-detail' con của phần tử cha
+        const dishBox = clickedElement.closest('.dish-box');
+        if (descriptionDetail.classList.contains("visible")) {
+            descriptionDetail.classList.remove('visible');
+            descriptionDetail.classList.add('invisible');
+            dishBox.classList.remove('dish-box-height-modify');
+            dishBox.classList.add('dish-box-height');
+        }else {
+            descriptionDetail.classList.remove('invisible');
+            descriptionDetail.classList.add('visible');
+            dishBox.classList.remove('dish-box-height');
+            dishBox.classList.add('dish-box-height-modify');
+        }
+
+    }
+
+    function activeDish(dishId) {
+        $('.dish_type1').removeClass('active');
+        $('.dish_type2').removeClass('active');
+        $('.dish_type3').removeClass('active');
+        $('.dish_type4').removeClass('active');
+        $('.dish_type' + dishId).addClass('active');
+    }
+
+    $(document).ready(function() {
+        $('.dish').click(function() {
+            //get dish active id
+            if ($('.dish.active').attr('class') == undefined) {
+                var activeDishId = 0;
+            } else {
+                var activeDishId = $('.dish.active').attr('class').split(' ')[2].split('dish_type')[1];
+            }
+
+            window.location.href = '/dish/filterByCriteria?dishID=' + activeDishId;
+        })
+        //get dishId from url
+        var url = window.location.href;
+        if (url.split('dishID=')[1] == undefined) {
+            var $dishId = 0;
+        } else {
+            var $dishId = url.split('dishID=')[1].split('&')[0];
+        }
+
+        activeDish($dishId);
+    })
+
+
+</script>

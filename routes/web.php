@@ -40,6 +40,8 @@ Route::prefix('restaurant')->group(function () {
 Route::prefix('dish')->group(function () {
     //duc: nay la dish ichiran
     Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
+
+    Route::get('/filterByCriteria',  [\App\Http\Controllers\DishController::class, 'filterByCriteria'])->name('dish.filterByCriteria');
 });
 
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
