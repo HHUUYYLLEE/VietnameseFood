@@ -30,13 +30,13 @@
       <div class="advise">11111111111でのアドバイスの連絡先</div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">
-                <img src="https://png.pngtree.com/png-clipart/20210801/ourmid/pngtree-lettering-doodle-vietnamese-food-typography-with-illustration-png-image_3764952.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top" />
-                VietnameseFood
-              </a>
-            </div>
+          <nav class="navbar bg-body-tertiary p-0 m-0">
+
+            <a class="navbar-brand" href="/">
+              <img src="logo.png" alt="Logo" width="50 " height="50" class="d-inline-block align-text-top" />
+            </a>
+
+
           </nav>
 
           <form class="d-flex space-modifier" role="search">
@@ -85,12 +85,21 @@
       </nav>
     </div>
   </header>
+  <style>
+    .nav-link {
+      font-weight: 600;
+    }
 
+    .navbar .navbar-brand {
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+    }
+  </style>
   <script>
     // red color the nav-link if this page is nav-link's page
     var url = new URL(window.location.href);
     var pathPage = url.pathname; // "/dish"
-    if(pathPage == "/"){
+    if (pathPage == "/") {
       pathPage = "/home";
     }
     var page = pathPage.substring(1); // "dish" 

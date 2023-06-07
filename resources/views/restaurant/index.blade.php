@@ -243,6 +243,11 @@
     .fa-star-half-alt {
         color: #D4B122;
     }
+
+    .card {
+        border-radius: 10px;
+        background-color: #FEF7F7;
+    }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

@@ -126,6 +126,10 @@
         cursor: pointer;
         color: red;
     }
+    .card {
+        border-radius: 10px;
+        background-color: #FEF7F7;
+    }
 </style>
 
 {{--Jquery--}}
