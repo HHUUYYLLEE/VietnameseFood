@@ -90,6 +90,9 @@
     // red color the nav-link if this page is nav-link's page
     var url = new URL(window.location.href);
     var pathPage = url.pathname; // "/dish"
+    if(pathPage == "/"){
+      pathPage = "/home";
+    }
     var page = pathPage.substring(1); // "dish" 
     page = page.split("/")[0];
     console.log(page);
