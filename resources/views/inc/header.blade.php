@@ -33,7 +33,7 @@
           <nav class="navbar bg-body-tertiary p-0 m-0">
 
             <a class="navbar-brand" href="/">
-              <img src="logo.png" alt="Logo" width="50 " height="50" class="d-inline-block align-text-top" />
+              <img src="/image/logo.png" alt="Logo" width="50 " height="50" class="d-inline-block align-text-top" />
             </a>
 
 
