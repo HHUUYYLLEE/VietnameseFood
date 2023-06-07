@@ -15,6 +15,8 @@
                 <p class="card-text mt-2"></p>
                 <h5>{{ $restaurant->name }}</h5>
                 <input type="text" class="custom-input" placeholder="{{ $restaurant->address }}" />
+                <br />
+                <i class="fa-regular fa-star"></i>
               </div>
             </div>
           </div>
