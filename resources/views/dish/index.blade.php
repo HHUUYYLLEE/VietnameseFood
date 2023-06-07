@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="sidebar-title d-flex">
-                        <i class="fa-solid fa-bars mr-4"></i>
-                        <h5 class="card-title">カテゴリィ</h5>
+                        <i class="category-title fa-solid fa-bars mr-4"></i>
+                        <h5 class="category-title card-title">カテゴリィ</h5>
                     </div>
                     <hr>
                     <div class="category-item d-flex">
@@ -86,6 +86,18 @@
 
     .pagination a.active {
         border: 1px solid red;
+    }
+
+    .category-title {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h5.card-title {
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
     }
 
     .dish_type1,

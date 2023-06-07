@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="sidebar-title d-flex">
-                        <i class="fa-solid fa-bars mr-4"></i>
-                        <h5 class="card-title">カテゴリィ</h5>
+                        <i class="category-title fa-solid fa-bars mr-4"></i>
+                        <h5 class="category-title card-title">カテゴリィ</h5>
                     </div>
                     <hr>
                     <div class="category-item d-flex">
@@ -32,8 +32,8 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <div class="sidebar-title d-flex">
-                        <i class="fa-solid fa-bars mr-4"></i>
-                        <h5 class="card-title">都市</h5>
+                        <i class="city-box fa-solid fa-bars mr-4"></i>
+                        <h5 class="city-box card-title">都市</h5>
                     </div>
                     <hr>
                     <div class="category-item d-flex">
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="star-group-review mt-4">
-                <div class=" star five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
+                <div class=" five-star-div row-star d-flex justify-content-around star_5" onclick="activeStar(5)">
                     <div class="five-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -65,7 +65,7 @@
                     </div>
                     <p class="invisible">以上</p>
                 </div>
-                <div class="star four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
+                <div class="four-star-div row-star d-flex justify-content-around star_4" onclick="activeStar(4)">
                     <div class="four-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -76,7 +76,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="star three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
+                <div class="three-star-div row-star d-flex justify-content-around star_3" onclick="activeStar(3)">
                     <div class="three-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -86,7 +86,7 @@
                     </div>
                     <p>以上</p>
                 </div>
-                <div class="star two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
+                <div class="two-star-div row-star d-flex justify-content-around star_2" onclick="activeStar(2)">
                     <div class="two-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -97,7 +97,7 @@
                     <p>以上</p>
                 </div>
 
-                <div class="star one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
+                <div class="one-star-div row-star d-flex justify-content-around star_1" onclick="activeStar(1)">
                     <div class="one-star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
@@ -189,6 +189,24 @@
 
     .pagination a.active {
         border: 1px solid red;
+    }
+
+    .category-title {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .city-box {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h5.card-title {
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
     }
 
     .dish_type1,
