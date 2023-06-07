@@ -150,29 +150,28 @@
             </div>
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
+                @php
+                if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['starID'])){
+                $dishID = $_GET['dishID'];
+                $cityID = $_GET['cityID'];
+                $star = $_GET['starID'];
+               $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
+                }
+                else{
+                $append = '';
+                }
+                @endphp
                 @if ($restaurants->currentPage() > 1)
-                <a href="{{ $restaurants->previousPageUrl() }}" class="page-link">前</a>
+                <a href="{{ $restaurants->previousPageUrl(). $append }}" class="page-link">前</a>
                 @endif
 
                 @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-                    @php
-                    if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['star'])){
-                    $dishID = $_GET['dishID'];
-                    $cityID = $_GET['cityID'];
-                    $star = $_GET['star'];
-                    $links = $restaurants->url($i) . '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&star=' . $star;
-                    }
-                    else{
-                    $links = $restaurants->url($i);
-                    }
 
-
-                    @endphp
-                    <a href="{{$links }} " class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                    <a href="{{$restaurants->url($i) . $append }} " class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
                     @endfor
 
                     @if ($restaurants->hasMorePages())
-                    <a href="{{ $restaurants->nextPageUrl() }}" class="page-link">次</a>
+                    <a href="{{ $restaurants->nextPageUrl(). $append }}" class="page-link">次</a>
                     @endif
             </div>
         </div>
