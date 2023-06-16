@@ -33,7 +33,7 @@
           <nav class="navbar bg-body-tertiary p-0 m-0">
 
             <a class="navbar-brand" href="/">
-              <img src="/image/logo.png" alt="Logo" width="50 " height="50" class="d-inline-block align-text-top" />
+              <img src="/image/logo.png" alt="Logo" width="50 " height="50" class="logo d-inline-block align-text-top" />
             </a>
 
 
@@ -66,7 +66,7 @@
             <i class="fa-solid fa-user"></i>
           </div>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ Auth::user()->email }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -90,9 +90,18 @@
       font-weight: 600;
     }
 
-    .navbar .navb{
+    .navbar .navb {
       padding: 0px 0px 0px 0px;
       margin: 0px 0px 0px 0px;
+    }
+
+    .logo {
+      scale: 2.3;
+    }
+
+    .email {
+      color: red !important;
+      font-weight: 600 !important;
     }
   </style>
   <script>
