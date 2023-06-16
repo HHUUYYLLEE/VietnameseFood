@@ -21,7 +21,7 @@ class DishSeeder extends Seeder
                 'name' => 'Phở bò',
                 'introduction' => 'Món ăn truyền thống của Việt Nam được làm từ bò, nui, hành tây và rau thơm.',
                 'image_url' => 'https://statics.vinpearl.com/bun-bo-hue-1_1628650972.jpg',
-                'type_id' => 1,
+                'type_id' => 2,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -29,7 +29,7 @@ class DishSeeder extends Seeder
                 'name' => 'Bún chả',
                 'introduction' => 'Món ăn đặc trưng của Hà Nội gồm bún (bánh phở xé nhỏ) và chả lụa (chả giò), thường ăn kèm với rau sống và nước chấm.',
                 'image_url' => 'https://cdn.tgdd.vn/Files/2022/01/25/1412805/cach-nau-pho-bo-nam-dinh-chuan-vi-thom-ngon-nhu-hang-quan-202201250313281452.jpg',
-                'type_id' => 2,
+                'type_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -66,18 +66,10 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Cháo lòng',
-                'introduction' => 'Món ăn phổ biến trong các quán ăn sáng tại Việt Nam, bao gồm cháo (cơm nấu thành cháo) và lòng heo.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
                 'name' => 'Bánh cuốn',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm bánh cuốn (bánh phở cuộn) và nhân bên trong có thịt heo, nấm hương hoặc tôm.',
                 'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
+                'type_id' => 3,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -93,15 +85,7 @@ class DishSeeder extends Seeder
                 'name' => 'Bánh xèo',
                 'introduction' => 'Món ăn của miền Nam Việt Nam, bao gồm bột mì pha với nước, thịt heo, tôm, hành tây và rau thơm.',
                 'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
-                'name' => 'Lẩu thái',
-                'introduction' => 'Món ăn đặc trưng của Thái Lan, bao gồm nước dùng cay, thịt gà hoặc hải sản và rau sống.',
-                'image_url' => 'https://statics.vinpearl.com/bun-bo-hue-1_1628650972.jpg',
-                'type_id' => 1,
+                'type_id' => 3,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -122,26 +106,10 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Nem rán',
-                'introduction' => 'Món ăn đặc trưng của Miền Bắc Việt Nam, bao gồm nem rán (chả giò) với nhân là thịt heo xay, tôm và nấm.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
                 'name' => 'Bún bò Huế',
                 'introduction' => 'Món ăn đặc trưng của Huế, bao gồm bún, thịt bò, giò heo, mắm ruốc, rau sống và nước dùng cay.',
                 'image_url' => 'https://statics.vinpearl.com/bun-bo-hue-1_1628650972.jpg',
                 'type_id' => 1,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
-                'name' => 'Gỏi cuốn',
-                'introduction' => 'Món ăn phổ biến của Việt Nam, bao gồm bánh tráng cuộn với rau sống, tôm, thịt heo hoặc gà.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -170,26 +138,10 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Lẩu cá diêu hồng',
-                'introduction' => 'Món ăn đặc trưng của miền Trung Việt Nam, bao gồm lẩu cá diêu hồng với rau sống và nước chấm.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
                 'name' => 'Bánh tráng nướng',
                 'introduction' => 'Món ăn đường phố phổ biến của Việt Nam, bao gồm bánh tráng nướng với trứng gà, thịt heo xé và tôm.',
                 'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
-                'name' => 'Gỏi cuốn chay',
-                'introduction' => 'Món ăn chay phổ biến của Việt Nam, bao gồm bánh tráng cuộn với rau sống, đậu hủ non và nấm.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
+                'type_id' => 3,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -213,7 +165,7 @@ class DishSeeder extends Seeder
                 'name' => 'Bánh canh',
                 'introduction' => 'Món ăn phổ biến của miền Trung Việt Nam, bao gồm bánh canh (loại bánh phở to hơn) và nước dùng từ xương heo, tôm hoặc thịt heo.',
                 'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
+                'type_id' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -253,20 +205,12 @@ class DishSeeder extends Seeder
                 'name' => 'Bánh bao',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm bánh bao nhân thịt heo xay, tôm hoặc củ cải.',
                 'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
+                'type_id' => 3,
                 'updated_at' => now(),
                 'created_at' => now()
             ],
             [
-                'name' => 'Chè',
-                'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
-                'image_url' => 'https://reviewvilla.vn/wp-content/uploads/2022/06/com-tam-Vung-Tau-5.jpg',
-                'type_id' => 4,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
-                'name' => 'Bán mì pate',
+                'name' => 'Bánh mì pate',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -274,7 +218,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì trứng',
+                'name' => 'Bánh mì trứng',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -282,7 +226,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì thập cẩm',
+                'name' => 'Bánh mì thập cẩm',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -290,7 +234,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì sốt bơ',
+                'name' => 'Bánh mì sốt bơ',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -298,7 +242,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì thịt nướng',
+                'name' => 'Bánh mì thịt nướng',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -306,7 +250,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì sốt vang',
+                'name' => 'Bánh mì sốt vang',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -314,7 +258,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì nướng',
+                'name' => 'Bánh mì nướng',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
@@ -322,7 +266,7 @@ class DishSeeder extends Seeder
                 'created_at' => now()
             ],
             [
-                'name' => 'Bán mì chiên giòn',
+                'name' => 'Bánh mì chiên giòn',
                 'introduction' => 'Món ăn truyền thống của Việt Nam, bao gồm chè (loại dessert) với ngũ cốc, đậu, trái cây hoặc thạch.',
                 'image_url' => 'https://static-images.vnncdn.net/files/publish/2022/9/15/banh-my-viet-nam-1632.jpg',
                 'type_id' => 3,
