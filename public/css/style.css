@@ -1,0 +1,266 @@
+#navbarSupportedContent .navbar-nav {
+  margin: 0 100px 0;
+}
+
+#navbarSupportedContent .nav-item {
+  margin-right: 50px;
+}
+
+/*
+.container-fluid .d-flex {
+  margin: 0px 100px 0px;
+}
+*/
+.space-modifier{
+    margin: 0px 100px 0px;
+}
+.container-fluid .form-control {
+  background-color: #f6ffa6;
+  border-color: red;
+}
+
+.container-fluid .btn-outline-success {
+  border-color: red;
+  color: white;
+  background-color: red;
+}
+
+.container-fluid .btn-outline-success:hover {
+  background-color: #007bff;
+}
+
+.container-fluid .btn-primary {
+  background-color: red;
+  border-color: red;
+}
+
+#header .navbar {
+  background-color: #f8e8ee;
+}
+
+.container-fluid .nav-item .nav-link {
+  color: black;
+}
+
+.container-fluid .nav-item .nav-link:hover {
+  color: red;
+}
+
+#footer .navbar {
+  background-color: #7e1717;
+  color: #f2bed1;
+  font-weight: 600;
+}
+
+#footer .nav {
+  margin: 0 15px;
+}
+#footer .col-md-6 {
+  padding: 20px 20px 20px 20px;
+}
+
+#footer .fa-brands,
+#footer .fa-solid {
+  font-size: 40px;
+  color: #f2bed1;
+}
+
+#footer .fa-brands:hover,
+#footer .fa-solid:hover {
+  text-decoration: none;
+}
+
+#header .avt {
+  margin-right: 10px;
+}
+
+#header .avt .fa-solid {
+  font-size: 20px;
+}
+
+#header .advise {
+  text-align: center;
+  background-color: red;
+  font-weight: 500;
+  color: white;
+}
+
+hr:after {
+  background: #fff;
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+}
+
+#dishes-high-rate hr {
+  border: none;
+  border-top: 3px solid #333;
+  color: #333;
+  text-align: center;
+  height: 10px;
+}
+
+#dishes-high-rate hr::after {
+  content: "多くの人が検索の料理";
+}
+
+#dishes-high-rate .dishes {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#dishes-high-rate .custom-input {
+  border: none;
+}
+
+#restaurant-high-rate hr {
+  border: none;
+  border-top: 3px solid #333;
+  color: #333;
+  text-align: center;
+  height: 10px;
+}
+
+#restaurant-high-rate hr::after {
+  content: "いい評価レストラン";
+}
+
+#restaurant-high-rate .restaurant {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  height: 465px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#restaurant-high-rate .custom-input {
+  border: none;
+}
+
+#carouselExampleIndicators .carousel-control-next-icon,
+#carouselExampleIndicators .carousel-control-prev-icon {
+  width: 25vh;
+  height: 25vh;
+  background-size: cover;
+}
+
+#carouselExampleIndicators .carousel-item img {
+  height: 80vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+#carouselExampleIndicators .carousel-indicators li {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#carouselExampleIndicators .carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+#carouselExampleIndicators .carousel-caption h2 {
+  font-size: 75px;
+}
+
+.card.position-relative:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.restaurant-wrap:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.pagination a.active {
+  border: 1px solid red;
+}
+
+.category-title {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.city-box {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h5.card-title {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.dish_type1,
+.dish_type2,
+.dish_type3,
+.dish_type4{
+  padding-left: 5px;
+}
+
+.dish_type1,
+.dish_type2,
+.dish_type3,
+.dish_type4:hover {
+  cursor: pointer;
+}
+
+.city_1,
+.city_2,
+.city_3,
+.city_4{
+  padding-left: 5px;
+}
+
+.city_1,
+.city_2,
+.city_3,
+.city_4:hover {
+  cursor: pointer;
+}
+
+.five-star-div,
+.four-star-div,
+.three-star-div,
+.two-star-div,
+.one-star-div:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+}
+
+.active .fa-star {
+  color: red;
+}
+
+.fa-star,
+.fa-star-half-alt {
+  color: #D4B122;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #FEF7F7;
+}
