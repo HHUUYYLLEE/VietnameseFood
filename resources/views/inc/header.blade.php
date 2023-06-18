@@ -40,10 +40,18 @@
           </nav>
 
           <form class="d-flex space-modifier" role="search">
-            <input class="form-control me-2" type="search" placeholder="検索機能" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            <div class="dropdown">
+              <input class="form-control me-2 search_input" type="search" placeholder="検索機能" aria-label="Search" />
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+              <div class="dropdown-content">
+                <p>レストラン</p>
+                <p>アドレス</p>
+                <p>料理</p>
+              </div>
+              <button class="btn btn-outline-success" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
           </form>
 
           <ul class="collapse navbar-collapse navbar-nav mb-2 mb-lg-0 row" id="navbarSupportedContent">
@@ -58,28 +66,25 @@
             </li>
           </ul>
           @guest
-          @if(Route::has('login'))
-          <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
-          @endif
+            @if(Route::has('login'))
+            <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
+            @endif
           @else
-          <div class="avt">
-            <i class="fa-solid fa-user"></i>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ Auth::user()->email }}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">ブッキングの履歴</a>
-              <a class="dropdown-item" href="#"> ユーザー情報</a>
-              <a class="dropdown-item" href="#">評価履歴</a>
-              <hr class="dropdown-divider" />
-              <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
+            <div class="avt">
+              <i class="fa-solid fa-user"></i>
             </div>
-          </div>
-          @php
-
-          @endphp
+            <div class="dropdown">
+              <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->email }}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">ブッキングの履歴</a>
+                <a class="dropdown-item" href="#"> ユーザー情報</a>
+                <a class="dropdown-item" href="#">評価履歴</a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
+              </div>
+            </div>
           @endguest
         </div>
       </nav>
@@ -125,6 +130,102 @@
         navLink.classList.add("active");
         //add color red 
         navLink.style.color = "red";
+      }
+    });
+
+    const dropdownIcon = document.querySelector(".dropdown-icon");
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    dropdownIcon.addEventListener("click", function () {
+      dropdownContent.style.display =
+        dropdownContent.style.display === "none" ? "block" : "none";
+    });
+
+    const dropdownContentP = document.querySelectorAll(
+      ".dropdown-content p"
+    );
+
+    dropdownContentP.forEach((p) => {
+      p.addEventListener("click", function () {
+        select_dropdown = p.textContent;
+        console.log(select_dropdown);
+        dropdownContent.style.display = "none";
+      });
+    });
+
+    // check if click outside dropdown-content
+    window.addEventListener("click", function (e) {
+      if (e.target !== dropdownIcon && e.target !== dropdownContent) {
+        dropdownContent.style.display = "none";
+      }
+    });
+
+
+    let select_dropdown = null;
+
+    // check if click btn search
+    const btnSearch = document.querySelector(".btn-outline-success");
+    var search_input = document.querySelector(".search_input");
+
+    btnSearch.addEventListener("click", function () {
+      if (select_dropdown == null) {
+        alert("ドロップダウンを選択してください");
+      }
+      else if (search_input.value == "") {
+        alert("検索ワードを入力してください");
+      }
+      else {
+        var searchForm = document.querySelector("form");
+
+        if (select_dropdown == 'レストラン') {
+
+        }
+        else if (select_dropdown == 'アドレス') {
+
+          fetch("/api/city" + "?cityName=" + search_input.value)
+            .then(response => response.json())
+            .then(data => {
+              if (data.length == 0) {
+                alert("検索結果がありません");
+              }
+              else {
+                var input2 = document.createElement("input");
+                input2.type = "hidden";
+                input2.name = "starID";
+                input2.value = "0";
+                searchForm.appendChild(input2);
+
+                var input3 = document.createElement("input");
+                input3.type = "hidden";
+                input3.name = "dishID";
+                input3.value = "0";
+                searchForm.appendChild(input3);
+
+                search_input.name = 'cityID'
+                search_input.value = data[0].id
+
+                searchForm.action = "{{ route('restaurants.filterByCriteria') }}";
+                searchForm.submit();
+              }
+            });
+
+          }
+        else if (select_dropdown == '料理') {
+          fetch('/api/dish?dishName=' + search_input.value)
+            .then(response => response.json())
+            .then(data => {
+              if (data.length == 0) {
+                alert("検索結果がありません");
+              }
+              else {
+                search_input.name = 'dishID'
+                search_input.value = data[0].id
+
+                searchForm.action = "{{ route('dish.filterByCriteria') }}";
+                searchForm.submit();
+              }
+            });
+        }
       }
     });
   </script>

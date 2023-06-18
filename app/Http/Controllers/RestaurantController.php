@@ -76,4 +76,22 @@ class RestaurantController extends Controller
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
         return view('restaurant.index', compact('restaurants', 'dishID', 'cityID', 'starID'));
     }
+
+    public function getCity(Request $request)
+    {
+        $cityName = $request->cityName;
+        $citys = DB::table('citys')
+            ->where('content', 'like', '%' . $cityName . '%')
+            ->get();
+        return response()->json($citys);
+    }
+
+    public function getRestaurant(Request $request)
+    {
+        $restaurantName = $request->restaurantName;
+        $restaurants = DB::table('restaurants')
+            ->where('name', 'like', '%' . $restaurantName . '%')
+            ->get();
+        return response()->json($restaurants);
+    }
 }

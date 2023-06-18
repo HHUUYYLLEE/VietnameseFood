@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class DishController extends Controller
 {
     //
@@ -31,5 +33,14 @@ class DishController extends Controller
         $dishes = $query->paginate(9);
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
         return view('dish.index', compact('dishes', 'dishID'));
+    }
+
+    public function getDish(Request $request)
+    {
+        $dishName = $request->dishName;
+        $dishs = DB::table('dish_type')
+            ->where('name', 'like', '%' . $dishName . '%')
+            ->get();
+        return response()->json($dishs);
     }
 }
