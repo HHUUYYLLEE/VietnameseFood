@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -70,10 +71,27 @@ class RestaurantController extends Controller
         if ($starID) {
             $query->where('rating_avg', '>=', $starID);
         }
-        
+
         // Thực hiện truy vấn và lấy ra kết quả phân trang
         $restaurants = $query->orderByDesc('rating_avg')->paginate(9);
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
         return view('restaurant.index', compact('restaurants', 'dishID', 'cityID', 'starID'));
+    }
+
+    public function show($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+
+
+
+        $comments = $restaurant->comments;
+        foreach ($comments as $comment) {
+            $comment->user_id = $comment->user;
+        }
+        $star = [];
+        for ($i = 1; $i <= 5; $i++) {
+            $star[$i] = $comments->where('rating', $i)->count();
+        }
+        return view('restaurant.show.index', compact('restaurant', 'comments', 'star'));
     }
 }

@@ -35,6 +35,7 @@ Route::prefix('restaurant')->group(function () {
     Route::get('/filterByStar/{star}',  [\App\Http\Controllers\RestaurantController::class, 'filterByStar'])->name('restaurants.filterByStar');
 
     Route::get('/filterByCriteria',  [\App\Http\Controllers\RestaurantController::class, 'filterByCriteria'])->name('restaurants.filterByCriteria');
+    Route::get('/{id}', [\App\Http\Controllers\RestaurantController::class, 'show'])->name('restaurant.show');
 });
 
 Route::prefix('dish')->group(function () {
