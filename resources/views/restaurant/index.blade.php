@@ -118,7 +118,7 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($restaurants as $restaurant)
-                <div class="restaurant-wrap mb-4" style="width: 31%">
+                <div class="restaurant-wrap mb-4" style="width: 31%" id="restaurant-{{ $restaurant->id }}">
                     <div class="card position-relative" style="height: 25rem">
                         <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
                         <div class="card-body d-flex flex-column justify-content-between">
@@ -158,7 +158,7 @@
                 $dishID = $_GET['dishID'];
                 $cityID = $_GET['cityID'];
                 $star = $_GET['starID'];
-               $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
+                $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
                 }
                 else{
                 $append = '';
@@ -184,76 +184,7 @@
 </div>
 
 @include('inc.footer')
-<!-- <style>
-    .restaurant-wrap:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    }
-
-    .pagination a.active {
-        border: 1px solid red;
-    }
-
-    .category-title {
-        color: red;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    .city-box {
-        color: red;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    h5.card-title {
-        font-weight: bold;
-        font-family: Arial, sans-serif;
-        font-size: 15px;
-    }
-
-    .dish_type1,
-    .dish_type2,
-    .dish_type3,
-    .dish_type4:hover {
-        cursor: pointer;
-    }
-
-    .city_1,
-    .city_2,
-    .city_3,
-    .city_4:hover {
-        cursor: pointer;
-    }
-
-    .five-star-div,
-    .four-star-div,
-    .three-star-div,
-    .two-star-div,
-    .one-star-div:hover {
-        cursor: pointer;
-    }
-
-    .active {
-        color: red;
-    }
-
-    .active .fa-star {
-        color: red;
-    }
-
-    .fa-star,
-    .fa-star-half-alt {
-        color: #D4B122;
-    }
-
-    .card {
-        border-radius: 10px;
-        background-color: #FEF7F7;
-    }
-</style> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script>
-    
     function activeDish(dishId) {
         $('.dish_type1').removeClass('active');
         $('.dish_type2').removeClass('active');
@@ -331,5 +262,12 @@
         activeDish($dishId);
         activeCity($cityId);
         activeStar($starID);
+    })
+
+    $(document).ready(function() {
+        $('.restaurant-wrap').click(function() {
+            var id = $(this).attr('id').split('-')[1];
+            window.location.href = '/restaurant/' + id;
+        })
     })
 </script>
