@@ -61,7 +61,7 @@
             {{--                                <div class="card-header d-flex border-0 justify-content-between"--}}
             {{--                                     style="background-color: #FDFFFB;">--}}
             {{--                                    <div class="block-avt-name-rating d-flex">--}}
-            {{--                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"--}}
+            {{--                                        <img src="image/avatar.png"--}}
             {{--                                             class="rounded-circle shadow-4" style="width: 50px; height: 50px;"--}}
             {{--                                             alt="Avatar"/>--}}
             {{--                                        <div class="name-rating">--}}
@@ -106,7 +106,7 @@
                                 <div class="card-header d-flex border-0 justify-content-between"
                                      style="background-color: #FDFFFB;">
                                     <div class="block-avt-name-rating d-flex">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+                                        <img src="/image/1.webp"
                                              class="rounded-circle shadow-4" style="width: 50px; height: 50px;"
                                              alt="Avatar"/>
                                         <div class="name-rating">
@@ -177,29 +177,29 @@
                     var commentsHtml = '';
 
                     $.each(data.comments, function(index, comment) {
-                        commentsHtml += '<div class="card">' +
-                            '<div class="card-header d-flex border-0 justify-content-between" style="background-color: #FDFFFB;">' +
-                            '<div class="block-avt-name-rating d-flex">' +
-                            '<img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/>' +
-                            '<div class="name-rating">' +
-                            '<h5>{!! $comment->user->email !!}</h5>' +
-                            '<div class="rating">';
+                        commentsHtml += `<div class="card">
+                            <div class="card-header d-flex border-0 justify-content-between" style="background-color: #FDFFFB;">
+                            <div class="block-avt-name-rating d-flex">
+                            <img src="/image/1.webp" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/>
+                            <div class="name-rating">
+                            <h5>`+ comment.user_id.email +`</h5>
+                            <div class="rating">`;
                         for (var i = 1; i <= comment.rating; i++) {
                             commentsHtml += '<i class="fa-solid fa-star" style="color: #CEC71C"></i>';
                         }
                         commentsHtml += '</div></div></div>';
+                        if(comment.user_id.id == {!! auth()->user()->id !!}) {
+                            commentsHtml += `<div class="edit"><div class="dropdown">
+                            <button class="btn btn-link dropdown text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"> 編集</a>
+                            <a class="dropdown-item" href="#">コメントを削除</a>
+                            </div></div></div>`
+                        }
 
-                        @can('updateComment', $comment)
-                            commentsHtml += '<div class="edit"><div class="dropdown">' +
-                            '<button class="btn btn-link dropdown text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-                            '<i class="fa-solid fa-ellipsis"></i></button>' +
-                            '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">' +
-                            '<a class="dropdown-item" href="#"> 編集</a>' +
-                            '<a class="dropdown-item" href="#">コメントを削除</a>' +
-                            '</div></div></div>';
-                        @endcan
-
-                            commentsHtml += '</div><div class="card-body">{!! $comment->comment !!}</div></div>';
+                           
+                            commentsHtml += '</div><div class="card-body">' + comment.comment +'</div></div>';
                     });
 
                     $('#comment-wrapper').html(commentsHtml);

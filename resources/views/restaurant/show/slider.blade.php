@@ -49,11 +49,11 @@
                         <div class="star-group">
                             @for ($i = 1; $i <= 5; $i++)
                                 @if ($percent>= $i * 20)
-                                    <i class="fas fa-star"></i>
+                                    <i class="review-star fas fa-star"></i>
                                 @elseif ($percent >= ($i - 0.5) * 20)
-                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="review-star fas fa-star-half-alt"></i>
                                 @else
-                                    <i class="far fa-star"></i>
+                                    <i class="review-star far fa-star"></i>
                                 @endif
                             @endfor
                         </div>
@@ -125,7 +125,7 @@
         right: -45px;
     }
 
-    .fa-star, .fa-star-half-alt {
+    .review-star {
         font-size: 3rem;
     }
 

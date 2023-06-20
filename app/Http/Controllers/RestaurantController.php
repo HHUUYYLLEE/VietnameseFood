@@ -97,22 +97,25 @@ class RestaurantController extends Controller
 
         $dishes = DB::table('restaurant_menus')
             ->join('dishes', 'restaurant_menus.dish_id', '=', 'dishes.id')
-            ->select('dishes.*','restaurant_menus.price')
+            ->select('dishes.*', 'restaurant_menus.price')
             ->where('restaurant_menus.restaurant_id', '=', $id)
             ->get();
-        $restaurant_imgs = ['https://www.hoteljob.vn/files/Anh-HTJ-Hong/sai-lam-tai-hai-khien-nha-hang-ngay-cang-vang-khach-tt-1.jpg','https://vietngon.vn/wp-content/uploads/2022/11/Sushi-world-phung-khac-khoan.jpg'];
+        $restaurant_imgs = ['https://www.hoteljob.vn/files/Anh-HTJ-Hong/sai-lam-tai-hai-khien-nha-hang-ngay-cang-vang-khach-tt-1.jpg', 'https://vietngon.vn/wp-content/uploads/2022/11/Sushi-world-phung-khac-khoan.jpg'];
 
-        return view('restaurant.show.index', compact('restaurant', 'comments', 'star', 'dishes','restaurant_imgs'));
+        return view('restaurant.show.index', compact('restaurant', 'comments', 'star', 'dishes', 'restaurant_imgs'));
     }
 
-    public function filterReviewsByStar(Request $request, $id) {
-        $star_num= $request->input('star_num');
+    public function filterReviewsByStar(Request $request, $id)
+    {
+        $star_num = $request->input('star_num');
 
         $comments = Comment::where('rating', '=', $star_num)
             ->whereHas('restaurant', function ($query) use ($id) {
                 $query->where('restaurant_id', '=', $id);
             })->get();
-
+        foreach ($comments as $comment) {
+            $comment->user_id = $comment->user;
+        }
         if ($comments->count() == 0) {
             return response()->json([
                 'message' => 'Không tìm thấy comments'
