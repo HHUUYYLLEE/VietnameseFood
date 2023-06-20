@@ -11,10 +11,16 @@
   margin: 0px 100px 0px;
 }
 */
-.space-modifier{
-    margin: 0px 100px 0px;
+.space-modifier {
+  margin: 0px 100px 0px;
 }
+
 .container-fluid .form-control {
+  background-color: #f6ffa6;
+  border-color: red;
+}
+
+.search {
   background-color: #f6ffa6;
   border-color: red;
 }
@@ -55,6 +61,7 @@
 #footer .nav {
   margin: 0 15px;
 }
+
 #footer .col-md-6 {
   padding: 20px 20px 20px 20px;
 }
@@ -179,8 +186,8 @@ hr:after {
   font-size: 75px;
 }
 
-.card.position-relative:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+.card.position-relative:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -214,7 +221,7 @@ h5.card-title {
 .dish_type1,
 .dish_type2,
 .dish_type3,
-.dish_type4{
+.dish_type4 {
   padding-left: 5px;
 }
 
@@ -228,7 +235,7 @@ h5.card-title {
 .city_1,
 .city_2,
 .city_3,
-.city_4{
+.city_4 {
   padding-left: 5px;
 }
 

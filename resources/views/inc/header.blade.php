@@ -39,15 +39,23 @@
 
           </nav>
 
-          <form class="d-flex space-modifier" role="search">
-            <div class="dropdown">
-              <input class="form-control me-2 search_input" type="search" placeholder="検索機能" aria-label="Search" />
-              <i class="fas fa-chevron-down dropdown-icon"></i>
-              <div class="dropdown-content">
-                <p>レストラン</p>
-                <p>アドレス</p>
-                <p>料理</p>
+          <form class=" space-modifier" role="search">
+            <div class="search border border-danger rounded d-flex align-items-center" style=" background-color:#F6FFA6 !important;">
+              <input style=" background-color:rgb(0,0,0,0) !important;
+       border:none !important;" type="search" class="form-control" name="search" placeholder="検索機能" aria-label="Search">
+              <div class="input-group-append">
+                <div class="dropdown input-group-append">
+                  <button class="btn btn-link dropdown" style="background-color: #F6FFA6;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">レストラン</a>
+                    <a class="dropdown-item" href="#">アドレス</a>
+                    <a class="dropdown-item" href="#">料理</a>
+                  </div>
+                </div>
               </div>
+
               <button class="btn btn-outline-success" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
@@ -66,25 +74,25 @@
             </li>
           </ul>
           @guest
-            @if(Route::has('login'))
-            <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
-            @endif
+          @if(Route::has('login'))
+          <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
+          @endif
           @else
-            <div class="avt">
-              <i class="fa-solid fa-user"></i>
+          <div class="avt">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->email }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">ブッキングの履歴</a>
+              <a class="dropdown-item" href="#"> ユーザー情報</a>
+              <a class="dropdown-item" href="#">評価履歴</a>
+              <hr class="dropdown-divider" />
+              <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->email }}
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">ブッキングの履歴</a>
-                <a class="dropdown-item" href="#"> ユーザー情報</a>
-                <a class="dropdown-item" href="#">評価履歴</a>
-                <hr class="dropdown-divider" />
-                <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
-              </div>
-            </div>
+          </div>
           @endguest
         </div>
       </nav>
@@ -136,7 +144,7 @@
     const dropdownIcon = document.querySelector(".dropdown-icon");
     const dropdownContent = document.querySelector(".dropdown-content");
 
-    dropdownIcon.addEventListener("click", function () {
+    dropdownIcon.addEventListener("click", function() {
       dropdownContent.style.display =
         dropdownContent.style.display === "none" ? "block" : "none";
     });
@@ -146,7 +154,7 @@
     );
 
     dropdownContentP.forEach((p) => {
-      p.addEventListener("click", function () {
+      p.addEventListener("click", function() {
         select_dropdown = p.textContent;
         console.log(select_dropdown);
         dropdownContent.style.display = "none";
@@ -154,7 +162,7 @@
     });
 
     // check if click outside dropdown-content
-    window.addEventListener("click", function (e) {
+    window.addEventListener("click", function(e) {
       if (e.target !== dropdownIcon && e.target !== dropdownContent) {
         dropdownContent.style.display = "none";
       }
@@ -167,28 +175,24 @@
     const btnSearch = document.querySelector(".btn-outline-success");
     var search_input = document.querySelector(".search_input");
 
-    btnSearch.addEventListener("click", function () {
+    btnSearch.addEventListener("click", function() {
       if (select_dropdown == null) {
         alert("ドロップダウンを選択してください");
-      }
-      else if (search_input.value == "") {
+      } else if (search_input.value == "") {
         alert("検索ワードを入力してください");
-      }
-      else {
+      } else {
         var searchForm = document.querySelector("form");
 
         if (select_dropdown == 'レストラン') {
 
-        }
-        else if (select_dropdown == 'アドレス') {
+        } else if (select_dropdown == 'アドレス') {
 
           fetch("/api/city" + "?cityName=" + search_input.value)
             .then(response => response.json())
             .then(data => {
               if (data.length == 0) {
                 alert("検索結果がありません");
-              }
-              else {
+              } else {
                 var input2 = document.createElement("input");
                 input2.type = "hidden";
                 input2.name = "starID";
@@ -209,15 +213,13 @@
               }
             });
 
-          }
-        else if (select_dropdown == '料理') {
+        } else if (select_dropdown == '料理') {
           fetch('/api/dish?dishName=' + search_input.value)
             .then(response => response.json())
             .then(data => {
               if (data.length == 0) {
                 alert("検索結果がありません");
-              }
-              else {
+              } else {
                 search_input.name = 'dishID'
                 search_input.value = data[0].id
 
