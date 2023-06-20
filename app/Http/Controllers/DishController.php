@@ -32,4 +32,10 @@ class DishController extends Controller
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
         return view('dish.index', compact('dishes', 'dishID'));
     }
+
+    public function show($id)
+    {
+        $dish = Dish::findOrFail($id);
+        return view('dish.show', compact('dish'));
+    }
 }

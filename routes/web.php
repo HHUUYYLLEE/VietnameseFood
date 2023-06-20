@@ -36,6 +36,8 @@ Route::prefix('restaurant')->group(function () {
 
     Route::get('/filterByCriteria',  [\App\Http\Controllers\RestaurantController::class, 'filterByCriteria'])->name('restaurants.filterByCriteria');
     Route::get('/{id}', [\App\Http\Controllers\RestaurantController::class, 'show'])->name('restaurant.show');
+    Route::get('/{id}/reviews/filter', [\App\Http\Controllers\RestaurantController::class,'filterReviewsByStar'])->name('restaurant.reviews.filter');
+
 });
 
 Route::prefix('dish')->group(function () {
@@ -43,6 +45,7 @@ Route::prefix('dish')->group(function () {
     Route::get('/', [\App\Http\Controllers\DishController::class, 'index'])->name('dish.index');
 
     Route::get('/filterByCriteria',  [\App\Http\Controllers\DishController::class, 'filterByCriteria'])->name('dish.filterByCriteria');
+    Route::get('/{id}', [\App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
 });
 
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');

@@ -33,33 +33,33 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="dish-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($dishes as $dish)
-                <div class="dish-wrap mb-4" style="width: 31%">
-                    <div class="card dish-box dish-box-height position-relative">
-                        <img class="card-img-top" src="{{ asset($dish->image_url) }}" alt="Product image" style="height: 55%; object-fit: cover;">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$dish->name}}</h5>
-                                <p class="card-text mt-2">{{$dish->address}}</p>
-                            </div>
-                            <div class="dish-description mt-2">
-                                <p class="visible dish-description-btn" onclick="displayDescription(event)">
-                                    説明…
-                                </p>
-                                <p class="invisible description-detail">
-                                    {{$dish->introduction}}
-                                </p>
-                            </div>
+                    <div class="dish-wrap mb-4" style="width: 31%" onclick="goToRestaurantDetailPage({{ $dish->id }})" data-id="{{ $dish->id }}">
+                        <div class="card dish-box dish-box-height position-relative">
+                            <img class="card-img-top" src="{{ asset($dish->image_url) }}" alt="Product image" style="height: 55%; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$dish->name}}</h5>
+                                    <p class="card-text mt-2">{{$dish->address}}</p>
+                                </div>
+                                <div class="dish-description mt-2">
+                                    <p class="visible dish-description-btn" onclick="displayDescription(event)">
+                                        説明…
+                                    </p>
+                                    <p class="invisible description-detail">
+                                        {{$dish->introduction}}
+                                    </p>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 
             </div>
 
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
-            @php
+                @php
                     if(isset($_GET['dishID'])){
                     $dishID = $_GET['dishID'];
                     $append = '&dishID=' . $dishID;
@@ -67,19 +67,19 @@
                     else{
                     $append = '';
                     }
-                    @endphp
+                @endphp
                 @if ($dishes->currentPage() > 1)
-                <a href="{{ $dishes->previousPageUrl(). $append }}" class="page-link">前</a>
+                    <a href="{{ $dishes->previousPageUrl(). $append }}" class="page-link">前</a>
                 @endif
 
                 @for ($i = 1; $i <= $dishes->lastPage(); $i++)
-                  
-                    <a href="{{$dishes->url($i). $append }}" class="page-link{{ ($dishes->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
 
-                    @if ($dishes->hasMorePages())
+                    <a href="{{$dishes->url($i). $append }}" class="page-link{{ ($dishes->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
+                @endfor
+
+                @if ($dishes->hasMorePages())
                     <a href="{{ $dishes->nextPageUrl(). $append }}" class="page-link">次</a>
-                    @endif
+                @endif
             </div>
         </div>
 
@@ -202,4 +202,8 @@
 
         activeDish($dishId);
     })
+
+    function goToRestaurantDetailPage(id) {
+        window.location.href = "/dish/" + id;
+    }
 </script>

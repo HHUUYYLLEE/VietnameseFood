@@ -118,64 +118,64 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($restaurants as $restaurant)
-                <div class="restaurant-wrap mb-4" style="width: 31%" id="restaurant-{{ $restaurant->id }}">
-                    <div class="card position-relative" style="height: 25rem">
-                        <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
-                                <p class="card-text mt-2">{{$restaurant->address}}</p>
-                            </div>
-                            <div class="star-button d-flex justify-content-between mt-4">
-                                @php
-                                $star = $restaurant->rating_avg;
-                                $maxRating = 5;
-                                $percent = ($star / $maxRating) * 100;
-                                @endphp
+                    <div class="restaurant-wrap mb-4" style="width: 31%" onclick="goToRestaurantDetailPage({{ $restaurant->id }})" data-id="{{ $restaurant->id }}">
+                        <div class="card position-relative" style="height: 25rem">
+                            <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: red">{{$restaurant->name}}</h5>
+                                    <p class="card-text mt-2">{{$restaurant->address}}</p>
+                                </div>
+                                <div class="star-button d-flex justify-content-between mt-4">
+                                    @php
+                                        $star = $restaurant->rating_avg;
+                                        $maxRating = 5;
+                                        $percent = ($star / $maxRating) * 100;
+                                    @endphp
 
-                                <div class="star-group">
-                                    @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
-                                        <i class="fas fa-star"></i>
+                                    <div class="star-group">
+                                        @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
+                                            <i class="fas fa-star"></i>
                                         @elseif ($percent >= ($i - 0.5) * 20)
-                                        <i class="fas fa-star-half-alt"></i>
+                                            <i class="fas fa-star-half-alt"></i>
                                         @else
-                                        <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
                                         @endif
                                         @endfor
+                                    </div>
+                                    <a href="#" class="btn btn-danger">予約</a>
                                 </div>
-                                <a href="#" class="btn btn-danger">予約</a>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 
             </div>
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
                 @php
-                if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['starID'])){
-                $dishID = $_GET['dishID'];
-                $cityID = $_GET['cityID'];
-                $star = $_GET['starID'];
-                $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
-                }
-                else{
-                $append = '';
-                }
+                    if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['starID'])){
+                    $dishID = $_GET['dishID'];
+                    $cityID = $_GET['cityID'];
+                    $starID = $_GET['starID'];
+                   $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
+                    }
+                    else{
+                    $append = '';
+                    }
                 @endphp
                 @if ($restaurants->currentPage() > 1)
-                <a href="{{ $restaurants->previousPageUrl(). $append }}" class="page-link">前</a>
+                    <a href="{{ $restaurants->previousPageUrl(). $append }}" class="page-link">前</a>
                 @endif
 
                 @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
 
                     <a href="{{$restaurants->url($i) . $append }} " class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
+                @endfor
 
-                    @if ($restaurants->hasMorePages())
+                @if ($restaurants->hasMorePages())
                     <a href="{{ $restaurants->nextPageUrl(). $append }}" class="page-link">次</a>
-                    @endif
+                @endif
             </div>
         </div>
 
@@ -184,7 +184,75 @@
 </div>
 
 @include('inc.footer')
+<style>
+    .restaurant-wrap:hover {
+        cursor: pointer;
+    }
+    /*.pagination a.active {*/
+    /*    border: 1px solid red;*/
+    /*}*/
+
+    /*.category-title {*/
+    /*    color: red;*/
+    /*    font-weight: bold;*/
+    /*    font-size: 20px;*/
+    /*}*/
+
+    /*.city-box {*/
+    /*    color: red;*/
+    /*    font-weight: bold;*/
+    /*    font-size: 20px;*/
+    /*}*/
+
+    /*h5.card-title {*/
+    /*    font-weight: bold;*/
+    /*    font-family: Arial, sans-serif;*/
+    /*    font-size: 15px;*/
+    /*}*/
+
+    /*.dish_type1,*/
+    /*.dish_type2,*/
+    /*.dish_type3,*/
+    /*.dish_type4:hover {*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*.city_1,*/
+    /*.city_2,*/
+    /*.city_3,*/
+    /*.city_4:hover {*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*.five-star-div,*/
+    /*.four-star-div,*/
+    /*.three-star-div,*/
+    /*.two-star-div,*/
+    /*.one-star-div:hover {*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*.active {*/
+    /*    color: red;*/
+    /*}*/
+
+    /*.active .fa-star {*/
+    /*    color: red;*/
+    /*}*/
+
+    /*.fa-star,*/
+    /*.fa-star-half-alt {*/
+    /*    color: #D4B122;*/
+    /*}*/
+
+    /*.card {*/
+    /*    border-radius: 10px;*/
+    /*    background-color: #FEF7F7;*/
+    /*}*/
+</style> -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script>
+
     function activeDish(dishId) {
         $('.dish_type1').removeClass('active');
         $('.dish_type2').removeClass('active');
@@ -264,10 +332,7 @@
         activeStar($starID);
     })
 
-    $(document).ready(function() {
-        $('.restaurant-wrap').click(function() {
-            var id = $(this).attr('id').split('-')[1];
-            window.location.href = '/restaurant/' + id;
-        })
-    })
+    function goToRestaurantDetailPage(id) {
+        window.location.href = "/restaurant/" + id;
+    }
 </script>
