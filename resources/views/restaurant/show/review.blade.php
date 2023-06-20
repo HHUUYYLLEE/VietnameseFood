@@ -1,6 +1,13 @@
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+{{--    seperate session --}}
+<div class="container-fluid line-separate d-flex justify-content-between mt-5 mb-3">
+    <hr style="width: 40%">
+    <p class="menu-title font-weight-bold" style="line-height: 40px">評価</p>
+    <hr style="width: 40%">
+</div>
+
 <div id="review-restaurant-list">
-    <hr/>
+{{--    <hr/>--}}
     <div class="review-wrapper">
         <div class="container">
             <div class="d-flex justify-content-between mb-4">
@@ -198,7 +205,7 @@
                             </div></div></div>`
                         }
 
-                           
+
                             commentsHtml += '</div><div class="card-body">' + comment.comment +'</div></div>';
                     });
 
@@ -211,15 +218,23 @@
 </script>
 
 <style>
-    #review-restaurant-list hr {
-        border: none;
-        border-top: 3px solid #333;
-        color: #333;
-        text-align: center;
-        height: 10px;
+    /*#review-restaurant-list hr {*/
+    /*    border: none;*/
+    /*    border-top: 3px solid #333;*/
+    /*    color: #333;*/
+    /*    text-align: center;*/
+    /*    height: 10px;*/
+    /*}*/
+
+    /*#review-restaurant-list hr::after {*/
+    /*    content: "評価";*/
+    /*    font-size: 2rem;*/
+    /*    line-height: 40px;*/
+    /*}*/
+
+    .menu-title {
+        font-size: 1.8rem;
+        color: red;
     }
 
-    #review-restaurant-list hr::after {
-        content: "評価";
-    }
 </style>

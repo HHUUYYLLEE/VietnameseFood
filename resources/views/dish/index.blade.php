@@ -90,6 +90,7 @@
 <style>
     .dish-wrap:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
     }
 
     .dish-box-height {
@@ -141,6 +142,8 @@
         border-radius: 10px;
         background-color: #FEF7F7;
     }
+
+
 </style>
 
 {{--Jquery--}}
