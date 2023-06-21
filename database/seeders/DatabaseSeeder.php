@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RestaurantMenuSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(BookingSeeder::class);
+        $this->call(RatingSeeder::class);
     }
 }
