@@ -115,13 +115,8 @@
                                     </div>
                                 </div>
                             </div>
-                            @php 
-                            $user_can = 0;
-                            @endphp
+                            
                             @can('updateComment', $comment)
-                            @php
-                            $user_can = $comment->user->id;
-                            @endphp
                             <div class="edit">
                                 <div class="dropdown">
                                     <button class="btn btn-link dropdown text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -188,7 +183,7 @@
                                         commentsHtml += '<i class="fa-solid fa-star" style="color: #CEC71C"></i>';
                                     }
                                     commentsHtml += '</div></div></div>';
-                                   if(comment.user_id.id == {!! $user_can !!}) {
+                                   if(comment.user_id.id == {!! Auth::user()->id?? 0 !!}) {
                                     commentsHtml += `<div class="edit"><div class="dropdown">
                             <button class="btn btn-link dropdown text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-ellipsis"></i></button>
