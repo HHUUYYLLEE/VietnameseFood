@@ -1,0 +1,10 @@
+@include('inc.header')
+@include('layout.app')
+<br>
+@include('restaurant.show.slider')
+<br>
+@include('restaurant.show.menu')
+<br>
+@include('restaurant.show.review')
+<br>
+@include('inc.footer')

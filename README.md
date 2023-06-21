@@ -1,3 +1,5 @@
+# VietnameseFood
+ITSS in Japanese (1) project
 # AE có thể sử dụng xampp để code như bình thường. nhớ chỉnh sửa file .env
 
 # Còn nếu ae muốn sử dụng docker:

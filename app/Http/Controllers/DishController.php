@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -40,5 +41,16 @@ class DishController extends Controller
         $dishName = $request->dishName;
         $dishes = Dish::where('name', 'like', '%' . $dishName . '%')->paginate(9);
         return view('dish.filter_by_dish_name', compact('dishes'));
+    }
+
+    public function show($id)
+    {
+        $dish = Dish::findOrFail($id);
+
+        $restaurants = Restaurant::whereHas('dishes', function ($query) use ($id) {
+            $query->where('dishes.id', $id);
+        })->get();
+
+        return view('dish.show.index', compact('dish', 'restaurants'));
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use function Termwind\style;
 
 class RestaurantController extends Controller
 {
@@ -70,7 +73,7 @@ class RestaurantController extends Controller
         if ($starID) {
             $query->where('rating_avg', '>=', $starID);
         }
-        
+
         // Thực hiện truy vấn và lấy ra kết quả phân trang
         $restaurants = $query->orderByDesc('rating_avg')->paginate(9);
         // Trả về view để hiển thị danh sách các nhà hàng đã lọc
@@ -99,5 +102,52 @@ class RestaurantController extends Controller
             ->paginate(9);
 
         return view('restaurant.filter_by_restaurant_name', compact('restaurants'));
+    }
+    
+    public function show($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+
+
+
+        $comments = $restaurant->comments;
+        foreach ($comments as $comment) {
+            $comment->user_id = $comment->user;
+        }
+        $star = [];
+        for ($i = 1; $i <= 5; $i++) {
+            $star[$i] = $comments->where('rating', $i)->count();
+        }
+
+        $dishes = DB::table('restaurant_menus')
+            ->join('dishes', 'restaurant_menus.dish_id', '=', 'dishes.id')
+            ->select('dishes.*', 'restaurant_menus.price')
+            ->where('restaurant_menus.restaurant_id', '=', $id)
+            ->get();
+        $restaurant_imgs = ['https://www.hoteljob.vn/files/Anh-HTJ-Hong/sai-lam-tai-hai-khien-nha-hang-ngay-cang-vang-khach-tt-1.jpg', 'https://vietngon.vn/wp-content/uploads/2022/11/Sushi-world-phung-khac-khoan.jpg'];
+
+        return view('restaurant.show.index', compact('restaurant', 'comments', 'star', 'dishes', 'restaurant_imgs'));
+    }
+
+    public function filterReviewsByStar(Request $request, $id)
+    {
+        $star_num = $request->input('star_num');
+
+        $comments = Comment::where('rating', '=', $star_num)
+            ->whereHas('restaurant', function ($query) use ($id) {
+                $query->where('restaurant_id', '=', $id);
+            })->get();
+        foreach ($comments as $comment) {
+            $comment->user_id = $comment->user;
+        }
+        if ($comments->count() == 0) {
+            return response()->json([
+                'message' => 'Không tìm thấy comments'
+            ]);
+        }
+
+        return response()->json([
+            'comments' => $comments
+        ]);
     }
 }

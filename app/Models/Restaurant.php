@@ -25,7 +25,7 @@ class Restaurant extends Model
     {
         return $this->belongsTo(City::class, 'city_id', 'id');
     }
-    public function dishs():BelongsToMany
+    public function dishes():BelongsToMany
     {
         return $this->belongsToMany(Dish::class, 'restaurant_menus', 'restaurant_id', 'dish_id');
     }
@@ -36,5 +36,9 @@ class Restaurant extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'restaurant_id', 'id');
     }
 }
