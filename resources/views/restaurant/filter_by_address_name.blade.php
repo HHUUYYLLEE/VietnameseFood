@@ -7,7 +7,7 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="restaurant-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($restaurants as $restaurant)
-                <div class="restaurant-wrap mb-4" style="width: 31%">
+                <div class="restaurant-wrap mb-4" style="width: 31%" onclick="goToRestaurantDetailPage({{ $restaurant->id }})" data-id="{{ $restaurant->id }}">
                     <div class="card position-relative" style="height: 25rem">
                         <img class="card-img-top" src="{{ asset($restaurant->image_url) }}" alt="Product image" style="height: 50%; object-fit: cover;">
                         <div class="card-body d-flex flex-column justify-content-between">
@@ -70,6 +70,12 @@
 </div>
 
 @include('inc.footer')
+<style>
+    .restaurant-wrap:hover {
+        cursor: pointer;
+    }
+</style>
+
 <script>
     $(document).ready(function() {
         // Hide '>'
@@ -96,4 +102,8 @@
             window.location.href = '/restaurant/filterByCriteria?dishID=' + activeDishId + '&cityID=' + activeCityId + '&starID=' + activeStarId;
         });
     })
+
+    function goToRestaurantDetailPage(id) {
+        window.location.href = "/restaurant/" + id;
+    }
 </script>

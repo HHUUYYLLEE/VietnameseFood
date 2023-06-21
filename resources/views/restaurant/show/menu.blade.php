@@ -9,7 +9,7 @@
 <div class="container menu-session">
     <div class="row d-flex justify-content-between gx-50">
         @foreach ($dishes as $dish)
-            <div class="dish-card-item d-flex mt-5 border border-danger rounded" style="width: 40%; min-height: 200px" onclick="goToRestaurantDetailPage({{ $dish->id }})" data-id="{{ $dish->id }}">
+            <div class="dish-card-item d-flex mt-5 border border-danger rounded" style="width: 40%; min-height: 200px" onclick="goToDishDetailPage({{ $dish->id }})" data-id="{{ $dish->id }}">
                 <img src="{{$dish->image_url}}" class="card-img-top" alt="..."
                      style="max-width: 45%; height: auto; object-fit: cover">
                 <div class="card-body ml-4 mt-4">
@@ -45,7 +45,7 @@
 </style>
 
 <script>
-    function goToRestaurantDetailPage(id) {
+    function goToDishDetailPage(id) {
         window.location.href = '/dish/' + id;
     }
 </script>

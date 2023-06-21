@@ -7,7 +7,7 @@
         <div class="col-lg-9 d-flex flex-column align-items-center">
             <div class="dish-list d-flex justify-content-around flex-wrap" style="width: 100%">
                 @foreach ($dishes as $dish)
-                    <div class="dish-wrap mb-4" style="width: 31%" onclick="goToRestaurantDetailPage({{ $dish->id }})" data-id="{{ $dish->id }}">
+                    <div class="dish-wrap mb-4" style="width: 31%" onclick="goToDishDetailPage({{ $dish->id }})" data-id="{{ $dish->id }}">
                         <div class="card dish-box dish-box-height position-relative">
                             <img class="card-img-top" src="{{ asset($dish->image_url) }}" alt="Product image" style="height: 55%; object-fit: cover;">
                             <div class="card-body d-flex flex-column justify-content-between">
@@ -107,7 +107,7 @@
         activeDish($dishId);
     })
 
-    function goToRestaurantDetailPage(id) {
+    function goToDishDetailPage(id) {
         window.location.href = "/dish/" + id;
     }
 </script>
