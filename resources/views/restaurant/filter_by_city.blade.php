@@ -224,7 +224,6 @@
 
     const path_city = window.location.pathname;
     const city = path_city.split('/').pop();
-    console.log(city);
     switch (city) {
         case 'Ha%20Noi':
             city1Node.classList.add("highlight");

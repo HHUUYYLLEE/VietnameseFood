@@ -306,7 +306,6 @@
                 var activeStarId = 0;
             } else {
                 var activeStarId = $('.star.active').attr('class').split(' ')[5].split('_')[1];
-                console.log(activeStarId);
             }
             window.location.href = '/restaurant/filterByCriteria?dishID=' + activeDishId + '&cityID=' + activeCityId + '&starID=' + activeStarId;
         })

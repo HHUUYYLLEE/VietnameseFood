@@ -127,7 +127,6 @@
     }
     var page = pathPage.substring(1); // "dish"
     page = page.split("/")[0];
-    console.log(page);
     var navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((navLink) => {
         // example http://localhost/dish?page=3 -> dish
