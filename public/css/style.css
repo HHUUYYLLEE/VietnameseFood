@@ -307,3 +307,58 @@ h5.card-title {
 .search_input {
   padding-right: 25px;
 }
+
+
+.dish-wrap:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.dish-box-height {
+  height: 25rem;
+}
+
+.dish-box-height-modify {
+  height: auto;
+}
+
+.pagination a.active {
+  border: 1px solid red;
+}
+
+.category-title {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h5.card-title {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.dish_type1,
+.dish_type2,
+.dish_type3,
+.dish_type4:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+}
+
+.dish-description-btn {
+  font-size: 20px;
+  color: #783232;
+}
+
+.dish-description-btn:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #FEF7F7;
+}

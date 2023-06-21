@@ -39,10 +39,10 @@
 
           </nav>
 
-          <form class=" space-modifier" role="search">
+          <form class="space-modifier" role="search">
             <div class="search border border-danger rounded d-flex align-items-center" style=" background-color:#F6FFA6 !important;">
               <input style=" background-color:rgb(0,0,0,0) !important;
-       border:none !important;" type="search" class="form-control" name="search" placeholder="検索機能" aria-label="Search">
+       border:none !important;" type="search" class="form-control search_input" name="search" placeholder="検索機能" aria-label="Search">
               <div class="input-group-append">
                 <div class="dropdown input-group-append">
                   <button class="btn btn-link dropdown" style="background-color: #F6FFA6;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,34 +142,15 @@
     });
 
     const dropdownIcon = document.querySelector(".dropdown-icon");
-    const dropdownContent = document.querySelector(".dropdown-content");
+    let select_dropdown = null;
 
-    dropdownIcon.addEventListener("click", function() {
-      dropdownContent.style.display =
-        dropdownContent.style.display === "none" ? "block" : "none";
-    });
-
-    const dropdownContentP = document.querySelectorAll(
-      ".dropdown-content p"
-    );
-
-    dropdownContentP.forEach((p) => {
-      p.addEventListener("click", function() {
-        select_dropdown = p.textContent;
-        console.log(select_dropdown);
-        dropdownContent.style.display = "none";
+    // check if click dropdown-item\
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+    dropdownItems.forEach((dropdownItem) => {
+      dropdownItem.addEventListener("click", function() {
+        select_dropdown = dropdownItem.innerHTML;
       });
     });
-
-    // check if click outside dropdown-content
-    window.addEventListener("click", function(e) {
-      if (e.target !== dropdownIcon && e.target !== dropdownContent) {
-        dropdownContent.style.display = "none";
-      }
-    });
-
-
-    let select_dropdown = null;
 
     // check if click btn search
     const btnSearch = document.querySelector(".btn-outline-success");
@@ -184,49 +165,17 @@
         var searchForm = document.querySelector("form");
 
         if (select_dropdown == 'レストラン') {
-
+          search_input.name = 'restaurantName'
+          searchForm.action = "/restaurant/filterByRestaurantName?restaurantName=" + search_input.value;
+          searchForm.submit();
         } else if (select_dropdown == 'アドレス') {
-
-          fetch("/api/city" + "?cityName=" + search_input.value)
-            .then(response => response.json())
-            .then(data => {
-              if (data.length == 0) {
-                alert("検索結果がありません");
-              } else {
-                var input2 = document.createElement("input");
-                input2.type = "hidden";
-                input2.name = "starID";
-                input2.value = "0";
-                searchForm.appendChild(input2);
-
-                var input3 = document.createElement("input");
-                input3.type = "hidden";
-                input3.name = "dishID";
-                input3.value = "0";
-                searchForm.appendChild(input3);
-
-                search_input.name = 'cityID'
-                search_input.value = data[0].id
-
-                searchForm.action = "{{ route('restaurants.filterByCriteria') }}";
-                searchForm.submit();
-              }
-            });
-
+          search_input.name = 'addressName'
+          searchForm.action = "/restaurant/filterByAddressName?addressName=" + search_input.value;
+          searchForm.submit();
         } else if (select_dropdown == '料理') {
-          fetch('/api/dish?dishName=' + search_input.value)
-            .then(response => response.json())
-            .then(data => {
-              if (data.length == 0) {
-                alert("検索結果がありません");
-              } else {
-                search_input.name = 'dishID'
-                search_input.value = data[0].id
-
-                searchForm.action = "{{ route('dish.filterByCriteria') }}";
-                searchForm.submit();
-              }
-            });
+          search_input.name = 'dishName'
+          searchForm.action = "/dish/filterByDishName?dishName=" + search_input.value;
+          searchForm.submit();
         }
       }
     });

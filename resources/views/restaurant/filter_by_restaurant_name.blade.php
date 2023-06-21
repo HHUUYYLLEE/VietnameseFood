@@ -17,20 +17,21 @@
                             </div>
                             <div class="star-button d-flex justify-content-between mt-4">
                                 @php
-                                $star = $restaurant->rating_avg;
-                                $maxRating = 5;
-                                $percent = ($star / $maxRating) * 100;
+                                    $star = $restaurant->rating_avg;
+                                    $maxRating = 5;
+                                    $percent = ($star / $maxRating) * 100;
                                 @endphp
 
                                 <div class="star-group">
-                                    @for ($i = 1; $i <= 5; $i++) @if ($percent>= $i * 20)
-                                        <i class="fas fa-star"></i>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($percent>= $i * 20)
+                                            <i class="fas fa-star"></i>
                                         @elseif ($percent >= ($i - 0.5) * 20)
-                                        <i class="fas fa-star-half-alt"></i>
+                                            <i class="fas fa-star-half-alt"></i>
                                         @else
-                                        <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
                                         @endif
-                                        @endfor
+                                    @endfor
                                 </div>
                                 <a href="#" class="btn btn-danger">予約</a>
                             </div>
@@ -43,32 +44,28 @@
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
                 @php
-                if(isset($_GET['dishID']) && isset($_GET['cityID']) && isset($_GET['starID'])){
-                $dishID = $_GET['dishID'];
-                $cityID = $_GET['cityID'];
-                $star = $_GET['starID'];
-               $append = '&&dishID=' . $dishID . '&&cityID=' . $cityID . '&&starID=' . $starID;
-                }
-                else{
-                $append = '';
-                }
+                    if(isset($_GET['restaurantName'])){
+                        $restaurantName = $_GET['restaurantName'];
+                        $append = '&restaurantName='.$restaurantName;
+                    }
+                    else{
+                        $append = '';
+                    }
                 @endphp
+
                 @if ($restaurants->currentPage() > 1)
-                <a href="{{ $restaurants->previousPageUrl(). $append }}" class="page-link">前</a>
+                    <a href="{{ $restaurants->previousPageUrl(). $append }}" class="page-link">前</a>
                 @endif
 
                 @for ($i = 1; $i <= $restaurants->lastPage(); $i++)
-
                     <a href="{{$restaurants->url($i) . $append }} " class="page-link{{ ($restaurants->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
+                @endfor
 
-                    @if ($restaurants->hasMorePages())
+                @if ($restaurants->hasMorePages())
                     <a href="{{ $restaurants->nextPageUrl(). $append }}" class="page-link">次</a>
-                    @endif
+                @endif
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -98,25 +95,5 @@
             }
             window.location.href = '/restaurant/filterByCriteria?dishID=' + activeDishId + '&cityID=' + activeCityId + '&starID=' + activeStarId;
         })
-        //get dishId, cityId, starId from url
-        var url = window.location.href;
-        if (url.split('dishID=')[1] == undefined) {
-            var $dishId = 0;
-        } else {
-            var $dishId = url.split('dishID=')[1].split('&')[0];
-        }
-        if (url.split('cityID=')[1] == undefined) {
-            var $cityId = 0;
-        } else {
-            var $cityId = url.split('cityID=')[1].split('&')[0];
-        }
-        if (url.split('starID=')[1] == undefined) {
-            var $starID = 0;
-        } else {
-            var $starID = url.split('starID=')[1];
-        }
-        activeDish($dishId);
-        activeCity($cityId);
-        activeStar($starID);
     })
 </script>

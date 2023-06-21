@@ -77,21 +77,27 @@ class RestaurantController extends Controller
         return view('restaurant.index', compact('restaurants', 'dishID', 'cityID', 'starID'));
     }
 
-    public function getCity(Request $request)
+    public function filterByAddressName(Request $request)
     {
-        $cityName = $request->cityName;
-        $citys = DB::table('citys')
-            ->where('content', 'like', '%' . $cityName . '%')
-            ->get();
-        return response()->json($citys);
+        $addressName = $request->addressName;
+
+        $restaurants = DB::table('restaurants')
+            ->where('address', 'like', '%' . $addressName . '%')
+            ->distinct()
+            ->paginate(9);
+
+        return view('restaurant.filter_by_address_name', compact('restaurants'));
     }
 
-    public function getRestaurant(Request $request)
+    public function filterByRestaurantName(Request $request)
     {
         $restaurantName = $request->restaurantName;
+
         $restaurants = DB::table('restaurants')
             ->where('name', 'like', '%' . $restaurantName . '%')
-            ->get();
-        return response()->json($restaurants);
+            ->distinct()
+            ->paginate(9);
+
+        return view('restaurant.filter_by_restaurant_name', compact('restaurants'));
     }
 }

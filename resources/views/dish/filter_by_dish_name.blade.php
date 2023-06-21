@@ -33,30 +33,29 @@
 
             {{--Tạo đường link phân trang cho danh sách nhà hàng--}}
             <div class="pagination mt-4">
-            @php
-                    if(isset($_GET['dishID'])){
-                    $dishID = $_GET['dishID'];
-                    $append = '&dishID=' . $dishID;
+                @php
+                    if(isset($_GET['dishName'])){
+                        $dishName = $_GET['dishName'];
+                        $append = '&dishName=' . $dishName;
                     }
                     else{
-                    $append = '';
+                        $append = '';
                     }
-                    @endphp
+                @endphp
+
                 @if ($dishes->currentPage() > 1)
-                <a href="{{ $dishes->previousPageUrl(). $append }}" class="page-link">前</a>
+                    <a href="{{ $dishes->previousPageUrl(). $append }}" class="page-link">前</a>
                 @endif
 
                 @for ($i = 1; $i <= $dishes->lastPage(); $i++)
-                  
                     <a href="{{$dishes->url($i). $append }}" class="page-link{{ ($dishes->currentPage() == $i) ? ' active' : '' }}">{{ $i }}</a>
-                    @endfor
+                @endfor
 
-                    @if ($dishes->hasMorePages())
+                @if ($dishes->hasMorePages())
                     <a href="{{ $dishes->nextPageUrl(). $append }}" class="page-link">次</a>
-                    @endif
+                @endif
             </div>
         </div>
-
     </div>
 </div>
 
@@ -96,14 +95,5 @@
 
             window.location.href = '/dish/filterByCriteria?dishID=' + activeDishId;
         })
-        //get dishId from url
-        var url = window.location.href;
-        if (url.split('dishID=')[1] == undefined) {
-            var $dishId = 0;
-        } else {
-            var $dishId = url.split('dishID=')[1].split('&')[0];
-        }
-
-        activeDish($dishId);
     })
 </script>

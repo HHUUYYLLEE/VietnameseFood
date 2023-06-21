@@ -35,12 +35,10 @@ class DishController extends Controller
         return view('dish.index', compact('dishes', 'dishID'));
     }
 
-    public function getDish(Request $request)
+    public function filterByDishName(Request $request)
     {
         $dishName = $request->dishName;
-        $dishs = DB::table('dish_type')
-            ->where('name', 'like', '%' . $dishName . '%')
-            ->get();
-        return response()->json($dishs);
+        $dishes = Dish::where('name', 'like', '%' . $dishName . '%')->paginate(9);
+        return view('dish.filter_by_dish_name', compact('dishes'));
     }
 }
