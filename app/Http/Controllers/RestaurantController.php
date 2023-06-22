@@ -64,7 +64,7 @@ class RestaurantController extends Controller
 
         // Nếu có chọn dish thì thêm vào câu truy vấn
         if ($dishID) {
-            $query->whereHas('dishs', function ($query) use ($dishID) {
+            $query->whereHas('dishes', function ($query) use ($dishID) {
                 $query->where('dish_id', $dishID);
             });
         }
