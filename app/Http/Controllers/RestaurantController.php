@@ -17,6 +17,7 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::orderByDesc('rating_avg')->paginate(9);
         return view('restaurant.index', compact('restaurants'));
     }
+
     // filter by dish function
     public function filterByDish($dish_id)
     {
@@ -103,11 +104,10 @@ class RestaurantController extends Controller
 
         return view('restaurant.filter_by_restaurant_name', compact('restaurants'));
     }
-    
+
     public function show($id)
     {
         $restaurant = Restaurant::findOrFail($id);
-
 
 
         $comments = $restaurant->comments;
@@ -123,8 +123,11 @@ class RestaurantController extends Controller
             ->join('dishes', 'restaurant_menus.dish_id', '=', 'dishes.id')
             ->select('dishes.*', 'restaurant_menus.price')
             ->where('restaurant_menus.restaurant_id', '=', $id)
-            ->get();
-        $restaurant_imgs = ['https://www.hoteljob.vn/files/Anh-HTJ-Hong/sai-lam-tai-hai-khien-nha-hang-ngay-cang-vang-khach-tt-1.jpg', 'https://vietngon.vn/wp-content/uploads/2022/11/Sushi-world-phung-khac-khoan.jpg'];
+            ->paginate(10);
+        $restaurant_imgs = [
+            'https://www.hoteljob.vn/files/Anh-HTJ-Hong/sai-lam-tai-hai-khien-nha-hang-ngay-cang-vang-khach-tt-1.jpg',
+            'https://vietngon.vn/wp-content/uploads/2022/11/Sushi-world-phung-khac-khoan.jpg'
+        ];
 
         return view('restaurant.show.index', compact('restaurant', 'comments', 'star', 'dishes', 'restaurant_imgs'));
     }
