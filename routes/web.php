@@ -26,14 +26,6 @@ Route::prefix('restaurant')->group(function () {
     //duc: nay la restaurant ichiran
     Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
     //duc: filter theo dish_type
-    Route::get('/filterByDish/{dish_id}',  [\App\Http\Controllers\RestaurantController::class, 'filterByDish'])->name('restaurants.filterByDish');
-
-    //duc: filter theo city
-    Route::get('/filterByCity/{city}',  [\App\Http\Controllers\RestaurantController::class, 'filterByCity'])->name('restaurants.filterByCity');
-
-    //duc: filter theo star
-    Route::get('/filterByStar/{star}',  [\App\Http\Controllers\RestaurantController::class, 'filterByStar'])->name('restaurants.filterByStar');
-
     Route::get('/filterByCriteria',  [\App\Http\Controllers\RestaurantController::class, 'filterByCriteria'])->name('restaurants.filterByCriteria');
 
     Route::get('/filterByRestaurantName', [\App\Http\Controllers\RestaurantController::class, 'filterByRestaurantName'])->name('restaurants.filterByRestaurantName');
@@ -55,10 +47,12 @@ Route::prefix('dish')->group(function () {
     Route::get('/{id}', [\App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
 });
 
-Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
-
 Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::middleware('auth.api')->group(function () {
+    Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
+});

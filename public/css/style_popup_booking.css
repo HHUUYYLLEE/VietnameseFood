@@ -1,0 +1,81 @@
+#booking-popup .modal-dialog .modal-header {
+  text-align: center;
+  justify-content: center;
+}
+
+#booking-popup .modal-dialog .modal-header h1 {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #b31312;
+}
+
+#booking-popup .modal-dialog .modal-header p {
+  font-weight: 600;
+  font-size: 20px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+ #booking-popup .modal {
+  --bs-modal-width: 800px;
+  --bs-modal-header-border-color: black;
+  --bs-modal-footer-border-color: none;
+} 
+
+#booking-popup .row {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+#booking-popup .dropdown-menu {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+#booking-popup .row p {
+  color: red;
+  font-weight: 500;
+}
+
+#booking-popup .booking-members .space-modifier {
+  width: 600px;
+}
+
+#booking-popup .booking-members ::placeholder {
+  color: red;
+  font-size: 24px;
+  font-weight: 500;
+  opacity: 0.25;
+}
+
+#booking-popup .booking-popup-footer .btn {
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+#booking-popup .booking-popup-footer .btn-primary-1 {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+}
+
+#booking-popup .booking-popup-footer .btn-primary-2 {
+  color: #fff;
+  background-color: #712cf9;
+  border-color: #712cf9;
+}
+
+#booking-popup .modal-content {
+  background-color: #e1ecc8;
+}
+
+#booking-popup .modal-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

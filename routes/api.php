@@ -17,13 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/', function () {
-    echo "API";
-});
-
-Route::get('/city', ['App\Http\Controllers\RestaurantController', 'getCity'])->name('api.getCityID');
-
-Route::get('/dish', ['App\Http\Controllers\DishController', 'getDish'])->name('api.getDishID');
-
-Route::get('/restaurant', ['App\Http\Controllers\RestaurantController', 'getRestaurant'])->name('api.getRestaurantID');
