@@ -9,8 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
     protected $table = 'comments';
-    protected $fillable = ['id', 'user_id', 'restaurant_id', 'comment', 'comment_date', 'rating', 'image_url', 'created_at', 'updated_at'];
-    protected $visible = ['id', 'user_id', 'restaurant_id', 'comment', 'comment_date', 'rating', 'image_url', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'user_id', 'restaurant_id', 'comment', 'comment_date', 'rating', 'image_url','date', 'created_at', 'updated_at'];
+    protected $visible = ['id', 'user_id', 'restaurant_id', 'comment', 'comment_date', 'rating', 'image_url','date', 'created_at', 'updated_at'];
 
     //relation
     public function user()

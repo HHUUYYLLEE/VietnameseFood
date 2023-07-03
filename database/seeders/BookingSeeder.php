@@ -23,7 +23,7 @@ class BookingSeeder extends Seeder
                     'restaurant_id' => $j,
                     'booking_date_time' => now(),
                     'number_of_people' => rand(1, 10),
-                    'status' => rand(0, 1),
+                    'status' => rand(0, 2),
                     'updated_at' => now(),
                     'created_at' => now(),
                 ];

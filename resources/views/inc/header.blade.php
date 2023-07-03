@@ -90,7 +90,7 @@
                 {{ Auth::user()->email }}
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">ブッキングの履歴</a>
+                <a class="dropdown-item" href="{{ route('booking.history') }}">ブッキングの履歴</a>
                 <a class="dropdown-item" href="#"> ユーザー情報</a>
                 <a class="dropdown-item" href="#">評価履歴</a>
                 <hr class="dropdown-divider" />

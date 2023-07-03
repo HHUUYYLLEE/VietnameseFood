@@ -55,4 +55,6 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 
 Route::middleware('auth.api')->group(function () {
     Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking.index');
+    Route::get('/booking/history', [App\Http\Controllers\BookingController::class, 'history'])->name('booking.history');
+    Route::post('/comment/create', [App\Http\Controllers\CommentController::class, 'create'])->name('comment.create');
 });
