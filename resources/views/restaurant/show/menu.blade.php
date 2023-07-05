@@ -1,4 +1,4 @@
-{{--    seperate session --}}
+{{-- seperate session --}}
 <div class="container-fluid line-separate d-flex justify-content-between mt-5">
     <hr style="width: 40%">
     <p class="menu-title font-weight-bold" style="line-height: 40px">メニュー</p>

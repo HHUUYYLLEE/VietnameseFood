@@ -64,7 +64,7 @@
                         <p class="time-line">{{$restaurant->opening_time}}</p>
                         <p class="time-line">{{$restaurant->closing_time}}</p>
                     </div>
-                    <button type="button" class="btn btn-danger btn-order">予約</button>
+                    <button type="button" class="btn btn-danger btn-order btn-booking">予約</button>
                 </div>
             </div>
             <hr>
@@ -175,3 +175,19 @@
     }
 
 </style>
+
+<script>
+    $(".btn-booking").click(function() {
+        @guest
+            warningNotification({
+                title: 'ログインしてください',
+                message: 'ログインしてください'
+            });
+        @else
+            restaurantId = {{$restaurant->id}};
+            // Test get myModal
+            jQuery.noConflict(); 
+            $('#myModal').modal('show');
+        @endguest
+    });
+</script>
