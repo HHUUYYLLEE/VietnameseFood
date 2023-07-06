@@ -1,3 +1,4 @@
+@include('layout.app')
 @include('inc.header')
 <div class="container custom-margin">
     <div class="row d-flex">

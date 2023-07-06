@@ -478,10 +478,6 @@
                 }
             });
 
-            // Điều hướng trang web đến route booking.index sau 3 giây
-
-
-            window.location.href = '/bookings/show';
         });
 
         // phần logic xử lí popup
