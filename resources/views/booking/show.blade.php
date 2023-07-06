@@ -364,13 +364,13 @@
                         title: "Xác nhận thành công",
                         text: "Booking đã được xác nhận.",
                         icon: "success",
-                        timer: 2000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                        timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
                         buttons: false
                     });
                     // Điều hướng trang web đến route booking.index sau 3 giây
                     setTimeout(function() {
                         window.location.href = '/bookings/show';
-                    }, 2000);
+                    }, 3000);
 
                 },
                 error: function(xhr, status, error) {
@@ -381,7 +381,7 @@
                         title: "Xác nhận thất bại",
                         text: "Có lỗi xảy ra khi xác nhận booking.",
                         icon: "error",
-                        timer: 2000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                        timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
                         buttons: false
                     });
                 }
@@ -414,7 +414,7 @@
                             title: "Từ chối thành công",
                             text: "Đã từ chối.",
                             icon: "success",
-                            timer: 2000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                            timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
                             buttons: false
                         });
 
@@ -422,13 +422,18 @@
                     // Điều hướng trang web đến route booking.index sau 3 giây
                     setTimeout(function() {
                         window.location.href = '/bookings/show';
-                    }, 2000);
+                    }, 3000);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
-                    // Xử lý khi yêu cầu thất bại
-                    Swal.fire('Lỗi', 'Có lỗi xảy ra. Vui lòng thử lại sau.',
-                        'error');
+                    // Xử lý lỗi
+                    Swal.fire({
+                        title: "Từ chối thất bại",
+                        text: "Có lỗi xảy ra khi từ chối booking.",
+                        icon: "error",
+                        timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                        buttons: false
+                    });
                 }
             });
             // Điều hướng trang web đến route booking.index sau 3 giây
@@ -458,13 +463,13 @@
                             title: "Xóa Booking thành công",
                             text: "Đã xóa.",
                             icon: "success",
-                            timer: 2000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                            timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
                             buttons: false
                         });
                         // Điều hướng trang web đến route booking.index sau 3 giây
                         setTimeout(function() {
                             window.location.href = '/bookings/show';
-                        }, 2000);
+                        }, 3000);
 
                     }
 
@@ -472,9 +477,14 @@
                 error: function(xhr, status, error) {
                     console.log(error);
                     // Xử lý khi yêu cầu thất bại
-                    Swal.fire('Lỗi',
-                        'Có lỗi xảy ra. Vui lòng thử lại sau.',
-                        'error');
+                    // Xử lý lỗi
+                    Swal.fire({
+                        title: "Xóa thất bại",
+                        text: "Có lỗi xảy ra khi xóa booking.",
+                        icon: "error",
+                        timer: 3000, // Thời gian hiển thị thông báo (tính bằng miligiây)
+                        buttons: false
+                    });
                 }
             });
 
