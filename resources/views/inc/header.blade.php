@@ -10,9 +10,12 @@
   <link rel="stylesheet" href=" {{ asset('css/style2.css') }}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 
   <!-- jQuery library -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
@@ -78,25 +81,25 @@
             </li>
           </ul>
           @guest
-            @if(Route::has('login'))
-              <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
-            @endif
+          @if(Route::has('login'))
+          <input type="button" class="btn btn-primary btn-lg" onclick="location.href='{{ route('login') }}'" value="ログイン">
+          @endif
           @else
-            <div class="avt">
-              <i class="fa-solid fa-user"></i>
+          <div class="avt">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->email }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{ route('booking.history') }}">ブッキングの履歴</a>
+              <a class="dropdown-item" href="{{route('profile')}}"> ユーザー情報</a>
+              <a class="dropdown-item" href="#">評価履歴</a>
+              <hr class="dropdown-divider" />
+              <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-link email dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->email }}
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ route('booking.history') }}">ブッキングの履歴</a>
-                <a class="dropdown-item" href="#"> ユーザー情報</a>
-                <a class="dropdown-item" href="#">評価履歴</a>
-                <hr class="dropdown-divider" />
-                <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
-              </div>
-            </div>
+          </div>
           @endguest
         </div>
       </nav>
@@ -200,7 +203,8 @@
         });
       } else {
         if (select_dropdown == 'レストラン') {
-          window.location.href = "/restaurant/filterByRestaurantName?restaurantName=" + search_input.value;
+          window.location.href = "/restaurant/filterByRestaurantName?restaurantName=" + search_input
+            .value;
         } else if (select_dropdown == 'アドレス') {
           window.location.href = "/restaurant/filterByAddressName?addressName=" + search_input.value;
         } else if (select_dropdown == '料理') {
