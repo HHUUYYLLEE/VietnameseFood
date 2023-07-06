@@ -1,5 +1,5 @@
 @include('inc.header')
-
+@include('layout.app')
 <div class="booking-wrapper">
     <div class="container">
         <h5 style="color: red; font-weight: 600; padding:30px">ブッキングの履歴</h5>

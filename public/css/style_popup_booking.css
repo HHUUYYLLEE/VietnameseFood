@@ -17,11 +17,9 @@
   margin-bottom: 20px;
 }
 
- #booking-popup .modal {
-  --bs-modal-width: 800px;
-  --bs-modal-header-border-color: black;
-  --bs-modal-footer-border-color: none;
-} 
+#booking-popup .modal-dialog {
+  max-width: 800px;
+}
 
 #booking-popup .row {
   margin-bottom: 20px;
@@ -38,8 +36,8 @@
   font-weight: 500;
 }
 
-#booking-popup .booking-members .space-modifier {
-  width: 600px;
+#booking-popup .booking-details .space-modifier {
+  margin: 0 0 0;
 }
 
 #booking-popup .booking-members ::placeholder {
@@ -47,6 +45,20 @@
   font-size: 24px;
   font-weight: 500;
   opacity: 0.25;
+}
+
+#booking-popup .booking-details ::placeholder {
+  color: red;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#booking-popup .booking-members .space-modifier {
+  width: 600px;
+}
+
+#booking-popup .booking-members p {
+  margin-left: 100px;
 }
 
 #booking-popup .booking-popup-footer .btn {
@@ -78,4 +90,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+#booking-popup .modal-header {
+  border-bottom: 1px solid black;
+}
+
+#booking-popup .modal-footer {
+  border-top: none;
+  padding-bottom: 30px;
 }

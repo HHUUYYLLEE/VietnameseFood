@@ -29,13 +29,12 @@ class Restaurant extends Model
     {
         return $this->belongsToMany(Dish::class, 'restaurant_menus', 'restaurant_id', 'dish_id');
     }
-    public function booking()
+    public function bookings()
     {
-        return $this->hasMany(Booking::class, 'restaurant_id', 'id');
+        return $this->hasMany(Booking::class);
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+    public function user(){
+        return $this->belongsToMany(User::class, 'user_id', 'id');
     }
     public function comments()
     {
