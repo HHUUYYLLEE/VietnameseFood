@@ -17,22 +17,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input year" name="search" placeholder="2023" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">2023</a>
-                          <a class="dropdown-item" href="#">2022</a>
-                          <a class="dropdown-item" href="#">2021</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input year" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
@@ -46,31 +31,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input month" name="search" placeholder="01" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">01</a>
-                          <a class="dropdown-item" href="#">02</a>
-                          <a class="dropdown-item" href="#">03</a>
-                          <a class="dropdown-item" href="#">04</a>
-                          <a class="dropdown-item" href="#">05</a>
-                          <a class="dropdown-item" href="#">06</a>
-                          <a class="dropdown-item" href="#">07</a>
-                          <a class="dropdown-item" href="#">08</a>
-                          <a class="dropdown-item" href="#">09</a>
-                          <a class="dropdown-item" href="#">10</a>
-                          <a class="dropdown-item" href="#">11</a>
-                          <a class="dropdown-item" href="#">12</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input month" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
@@ -84,34 +45,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input day" name="search" placeholder="01" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">01</a>
-                          <a class="dropdown-item" href="#">02</a>
-                          <a class="dropdown-item" href="#">03</a>
-                          <a class="dropdown-item" href="#">04</a>
-                          <a class="dropdown-item" href="#">05</a>
-                          <a class="dropdown-item" href="#">06</a>
-                          <a class="dropdown-item" href="#">07</a>
-                          <a class="dropdown-item" href="#">08</a>
-                          <a class="dropdown-item" href="#">09</a>
-                          <a class="dropdown-item" href="#">10</a>
-                          <a class="dropdown-item" href="#">11</a>
-                          <a class="dropdown-item" href="#">12</a>
-                          <a class="dropdown-item" href="#">13</a>
-                          <a class="dropdown-item" href="#">14</a>
-                          <a class="dropdown-item" href="#">15</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input day" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
@@ -127,31 +61,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input hour" name="search" placeholder="7" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">1</a>
-                          <a class="dropdown-item" href="#">2</a>
-                          <a class="dropdown-item" href="#">3</a>
-                          <a class="dropdown-item" href="#">4</a>
-                          <a class="dropdown-item" href="#">5</a>
-                          <a class="dropdown-item" href="#">6</a>
-                          <a class="dropdown-item" href="#">7</a>
-                          <a class="dropdown-item" href="#">8</a>
-                          <a class="dropdown-item" href="#">9</a>
-                          <a class="dropdown-item" href="#">10</a>
-                          <a class="dropdown-item" href="#">11</a>
-                          <a class="dropdown-item" href="#">12</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input hour" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
@@ -165,27 +75,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input minute" name="search" placeholder="30" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">01</a>
-                          <a class="dropdown-item" href="#">02</a>
-                          <a class="dropdown-item" href="#">03</a>
-                          <a class="dropdown-item" href="#">04</a>
-                          <a class="dropdown-item" href="#">05</a>
-                          <a class="dropdown-item" href="#">06</a>
-                          <a class="dropdown-item" href="#">07</a>
-                          <a class="dropdown-item" href="#">08</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input minute" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
@@ -199,21 +89,7 @@
                                 background-color: rgb(0, 0, 0, 0) !important;
                                 border: none !important;color:red;    font-size: 24px;
     font-weight: 500;
-                              " type="search" class="form-control search_input ampm" name="search" placeholder="AM" aria-label="Search" />
-                    <div class="input-group-append">
-                      <div class="dropdown input-group-append">
-                        <button class="btn btn-link dropdown" style="
-                                    background-color: #ffdede;
-                                    height: calc(1.5em + 1.75rem + 2px);
-                                  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">AM</a>
-                          <a class="dropdown-item" href="#">PM</a>
-                        </div>
-                      </div>
-                    </div>
+                              " type="search" class="form-control search_input ampm" name="search" aria-label="Search" />
                   </div>
                 </form>
               </div>
