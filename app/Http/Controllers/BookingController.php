@@ -102,7 +102,7 @@ class BookingController extends Controller
             $item->phone_number = $item->user->phone_number;
         }
         foreach ($bookings_confirmed as $item) {
-            $item->user_name = $item->user->name;
+            $item->name = $item->user->name;
             $item->email = $item->user->email;
             $item->phone_number = $item->user->phone_number;
         }
