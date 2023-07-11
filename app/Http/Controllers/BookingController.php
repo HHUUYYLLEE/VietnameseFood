@@ -93,8 +93,8 @@ class BookingController extends Controller
         $restaurant = Restaurant::find($restaurantId)->first();
 
         $bookings_confirming = $restaurant->bookings->where('status', 0);
-        $bookings_confirmed = $restaurant->bookings->where('status', 1);
-
+        $bookings_confirmed = $restaurant->bookings->where('status', 2);
+        
         // Add user info to booking
         foreach ($bookings_confirming as $item) {
             $item->name = $item->user->name;
@@ -102,7 +102,7 @@ class BookingController extends Controller
             $item->phone_number = $item->user->phone_number;
         }
         foreach ($bookings_confirmed as $item) {
-            $item->user_name = $item->user->name;
+            $item->name = $item->user->name;
             $item->email = $item->user->email;
             $item->phone_number = $item->user->phone_number;
         }
@@ -114,7 +114,7 @@ class BookingController extends Controller
         
         $confirmRows = DB::table('booking')
             ->where('id', $id)
-            ->update(['status' => 1]);
+            ->update(['status' => 2]);
         // var_dump($booking);
         // Kiểm tra xem đã cập nhật thành công vào cơ sở dữ liệu hay chưa
         
@@ -126,7 +126,7 @@ class BookingController extends Controller
     {
         $affectedRows = DB::table('booking')
             ->where('id', $id)
-            ->update(['status' => -1]);
+            ->update(['status' => 1]);
 
         // dd($affectedRows);
         // Kiểm tra xem đã cập nhật thành công vào cơ sở dữ liệu hay không

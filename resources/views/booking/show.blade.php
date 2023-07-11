@@ -18,11 +18,10 @@
             @php
             $i = 1;
             @endphp
-
-            @foreach($bookings_confirming as $booking_confirming_item)
-
+            
+            @foreach($bookings_confirming as $booking_confirming_item)      
             <div class="booking-confirming-box d-flex justify-content-between align-item-center">
-                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirming_item->id}}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width:70%;">
+                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{ $booking_confirming_item->id }}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width:70%;">
                     <p>ブッキング{{$i}}</p>
                 </span>
 
@@ -32,7 +31,6 @@
                 </span>
 
             </div>
-
             @php
             $i++;
             @endphp
@@ -51,7 +49,7 @@
             @foreach($bookings_confirmed as $booking_confirmed_item)
 
             <div class="booking-confirming-box d-flex justify-content-between align-item-center background-color-custom booking-confirmed-box">
-                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirming_item->id}}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width: 80%;">
+                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirmed_item->id}}" data-booking-name="{{$booking_confirmed_item->name}}" data-booking-number_of_people="{{$booking_confirmed_item->number_of_people}}" data-booking-phone_number="{{$booking_confirmed_item->phone_number}}" data-booking-email="{{$booking_confirmed_item->email}}" data-booking-time="{{$booking_confirmed_item->booking_date_time}}" style="width: 80%;">
                     <p>ブッキング{{$j}}</p>
                 </span>
 
@@ -92,7 +90,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-name-booking" style="
+                                                <input readonly id="input-name-booking" style="
                             background-color: rgb(0, 0, 0, 0) !important;
                             border: none !important;
                             height: calc(1.5em + 1.75rem + 2px);
@@ -107,7 +105,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-number-people" style=" background-color: rgb(0, 0, 0, 0) !important;
+                                                <input readonly id="input-booking-number-people" style=" background-color: rgb(0, 0, 0, 0) !important;
                                                     border: none !important; height: calc(1.5em + 1.75rem +
                                                     2px); " type=" search" class="form-control search_input" name="search" placeholder="人数" aria-label="Search" />
                                             </div>
@@ -120,7 +118,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-phone" style="
+                                                <input readonly id="input-booking-phone" style="
                             background-color: rgb(0, 0, 0, 0) !important;
                             border: none !important;
                             height: calc(1.5em + 1.75rem + 2px);
@@ -135,7 +133,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-datetime" style=" background-color: rgb(0, 0, 0, 0) !important; border:
+                                                <input readonly id="input-booking-datetime" style=" background-color: rgb(0, 0, 0, 0) !important; border:
                                                     none !important; height: calc(1.5em + 1.75rem + 2px); " type="
                                                     search" class="form-control search_input" name="search" placeholder="日時" aria-label="Search" />
                                             </div>
@@ -148,7 +146,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-email" style=" background-color: rgb(0, 0, 0, 0) !important; border:
+                                                <input readonly id="input-booking-email" style=" background-color: rgb(0, 0, 0, 0) !important; border:
                                                     none !important; height: calc(1.5em + 1.75rem + 2px); " type="
                                                     search" class="form-control search_input" name="search" placeholder="メール" aria-label="Search" />
                                             </div>
