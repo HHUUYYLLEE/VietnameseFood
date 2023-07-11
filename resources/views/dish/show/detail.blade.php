@@ -20,6 +20,7 @@
                   placeholder="説明..."
                   id="floatingTextarea"
                   style="font-size: 1.5rem;"
+                  readonly
               >{{$dish->introduction}}</textarea>
                 </div>
 
