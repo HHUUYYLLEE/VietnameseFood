@@ -90,7 +90,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-name-booking" style="
+                                                <input readonly id="input-name-booking" style="
                             background-color: rgb(0, 0, 0, 0) !important;
                             border: none !important;
                             height: calc(1.5em + 1.75rem + 2px);
@@ -105,7 +105,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-number-people" style=" background-color: rgb(0, 0, 0, 0) !important;
+                                                <input readonly id="input-booking-number-people" style=" background-color: rgb(0, 0, 0, 0) !important;
                                                     border: none !important; height: calc(1.5em + 1.75rem +
                                                     2px); " type=" search" class="form-control search_input" name="search" placeholder="人数" aria-label="Search" />
                                             </div>
@@ -118,7 +118,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-phone" style="
+                                                <input readonly id="input-booking-phone" style="
                             background-color: rgb(0, 0, 0, 0) !important;
                             border: none !important;
                             height: calc(1.5em + 1.75rem + 2px);
@@ -133,7 +133,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-datetime" style=" background-color: rgb(0, 0, 0, 0) !important; border:
+                                                <input readonly id="input-booking-datetime" style=" background-color: rgb(0, 0, 0, 0) !important; border:
                                                     none !important; height: calc(1.5em + 1.75rem + 2px); " type="
                                                     search" class="form-control search_input" name="search" placeholder="日時" aria-label="Search" />
                                             </div>
@@ -146,7 +146,7 @@
                                     <div class="booking-space">
                                         <form class="space-modifier" role="search">
                                             <div class="search border border-danger rounded d-flex align-items-center" style="background-color: #ffdede !important">
-                                                <input id="input-booking-email" style=" background-color: rgb(0, 0, 0, 0) !important; border:
+                                                <input readonly id="input-booking-email" style=" background-color: rgb(0, 0, 0, 0) !important; border:
                                                     none !important; height: calc(1.5em + 1.75rem + 2px); " type="
                                                     search" class="form-control search_input" name="search" placeholder="メール" aria-label="Search" />
                                             </div>
