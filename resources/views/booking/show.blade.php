@@ -18,11 +18,10 @@
             @php
             $i = 1;
             @endphp
-
-            @foreach($bookings_confirming as $booking_confirming_item)
-
+            
+            @foreach($bookings_confirming as $booking_confirming_item)      
             <div class="booking-confirming-box d-flex justify-content-between align-item-center">
-                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirming_item->id}}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width:70%;">
+                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{ $booking_confirming_item->id }}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width:70%;">
                     <p>ブッキング{{$i}}</p>
                 </span>
 
@@ -32,7 +31,6 @@
                 </span>
 
             </div>
-
             @php
             $i++;
             @endphp
@@ -51,7 +49,7 @@
             @foreach($bookings_confirmed as $booking_confirmed_item)
 
             <div class="booking-confirming-box d-flex justify-content-between align-item-center background-color-custom booking-confirmed-box">
-                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirming_item->id}}" data-booking-name="{{$booking_confirming_item->name}}" data-booking-number_of_people="{{$booking_confirming_item->number_of_people}}" data-booking-phone_number="{{$booking_confirming_item->phone_number}}" data-booking-email="{{$booking_confirming_item->email}}" data-booking-time="{{$booking_confirming_item->booking_date_time}}" style="width: 80%;">
+                <span class="modal-dropdown-span" data-toggle="modal" data-target="#exampleModal" data-booking-id="{{$booking_confirmed_item->id}}" data-booking-name="{{$booking_confirmed_item->name}}" data-booking-number_of_people="{{$booking_confirmed_item->number_of_people}}" data-booking-phone_number="{{$booking_confirmed_item->phone_number}}" data-booking-email="{{$booking_confirmed_item->email}}" data-booking-time="{{$booking_confirmed_item->booking_date_time}}" style="width: 80%;">
                     <p>ブッキング{{$j}}</p>
                 </span>
 
