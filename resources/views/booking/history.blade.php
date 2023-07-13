@@ -79,7 +79,7 @@
                                 <textarea style=" background-color:#FAEAEA !important; border:none !important;" rows="7" placeholder="コメント" id="comment" name="comment" type="text" class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="mb-5 form-group ">
+<!--                        <div class="mb-5 form-group ">
                             <span style="color:#A32525; font-size:x-small; font-weight:bold" class="p-2">
                                 イメージのURL・ファイル</span>
                             <div class="input-group border border-danger rounded mb-2">
@@ -89,7 +89,7 @@
                                 <i class="far fa-plus fa-2x p-2"></i>
                                 <span style="color:#A32525; font-size:small; font-weight:bold">イメージのファイルを追加</span>
                             </label>
-                        </div>
+                        </div> -->
                         <div class="d-flex justify-content-around">
                             <button type="cancel" class="col-4 btn btn-primary btn-block btn-cancel" style="background-color: #5F28FD;" data-bs-dismiss="modal">キャンセル</button>
                             <button type="submit" class="col-4 btn btn-danger btn-block">OK</button>

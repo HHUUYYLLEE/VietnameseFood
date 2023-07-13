@@ -49,7 +49,7 @@
               @enderror
             </div>
 
-            <div class="checkbox_remember">
+<!--            <div class="checkbox_remember">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -57,7 +57,7 @@
                   {{ __('私を覚えてくれ') }}
                 </label>
               </div>
-            </div>
+            </div> -->
             <br>
             <div class="form-group w-100 ">
               <button type="submit" class="col-12 btn btn-block btn-primary " style="background-color:#E31818; border-radius: 10px;">
